@@ -8,8 +8,8 @@ url: https://exacheck.net
 aux_links:
   Contact: mailto:help@exacheck.net
 
-# Use light theme by default
-color_scheme: light
+# Use dark theme by default
+color_scheme: dark
 
 # Add sitemap
 plugins:

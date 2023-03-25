@@ -1,6 +1,6 @@
 <footer class="site-footer">
     <p>
-        <button class="btn js-toggle-dark-mode">Dark Mode</button>
+        <button class="btn js-toggle-light-mode">Light Mode</button>
     </p>
     <p>
         Latest release: <a href="https://github.com/exacheck/exacheck/releases/latest">1.0.0</a>
@@ -8,15 +8,15 @@
 </footer>
 
 <script>
-const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
+const toggleLightMode = document.querySelector('.js-toggle-light-mode');
 
-jtd.addEvent(toggleDarkMode, 'click', function(){
-    if (jtd.getTheme() === 'dark') {
-        jtd.setTheme('light');
-        toggleDarkMode.textContent = 'Dark Mode';
-    } else {
+jtd.addEvent(toggleLightMode, 'click', function(){
+    if (jtd.getTheme() === 'light') {
         jtd.setTheme('dark');
         toggleDarkMode.textContent = 'Light Mode';
+    } else {
+        jtd.setTheme('light');
+        toggleDarkMode.textContent = 'Dark Mode';
     }
 });
 </script>
