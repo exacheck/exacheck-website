@@ -3,7 +3,7 @@ title: CLI
 description: Usage of the ExaCheck command line interface.
 layout: page
 nav_order: 30
-permalink: /cli
+permalink: /cli.html
 ---
 
 # ExaCheck CLI
@@ -78,5 +78,5 @@ The `schema` command is used to dump the configuration file JSON schema to STDOU
 exacheck schema > /tmp/schema.json
 ```
 
-[ExaCheck Configuration File]: https://exacheck.net/configuration/basics
-[ExaCheck Configuration File Schema]: https://exacheck.net/configuration/basics#configuration-schema
+[ExaCheck Configuration File]: https://exacheck.net/configuration/basics.html
+[ExaCheck Configuration File Schema]: https://exacheck.net/configuration/basics.html#configuration-schema

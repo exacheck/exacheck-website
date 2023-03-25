@@ -3,7 +3,7 @@ title: Requirements
 description: Minimum requirements to run ExaCheck.
 layout: page
 nav_order: 0
-permalink: /deployment/requirements
+permalink: /deployment/requirements.html
 parent: Deployment
 ---
 
@@ -32,28 +32,28 @@ Various Python modules are required to use ExaCheck. The current requirements an
 
 These dependencies are used as a part of the main script.
 
-- [ExaBGP]: `exabgp` is used to actually talk BGP; ExaCheck communicates with ExaBGP to announce or withdraw routes as needed.
-- [Loguru]: `loguru` is used for logging.
-- [Pydantic]: `pydantic` is used to validate and store the configuration objects and check results.
-- [PyYAML]: `pyyaml` is used to load and parse the configuration file into a dict, ready for [Pydantic] to consume.
-- [setproctitle]: `setproctitle` will change the process title for the child processes (when ExaCheck is running in `processes` mode).
-- [tabulate]: `tabulate` is used to format output into a table.
+- [ExaBGP][ExaBGP]: `exabgp` is used to actually talk BGP; ExaCheck communicates with ExaBGP to announce or withdraw routes as needed.
+- [Loguru][Loguru]: `loguru` is used for logging.
+- [Pydantic][Pydantic]: `pydantic` is used to validate and store the configuration objects and check results.
+- [PyYAML][PyYAML]: `pyyaml` is used to load and parse the configuration file into a dict, ready for [Pydantic][Pydantic] to consume.
+- [setproctitle][setproctitle]: `setproctitle` will change the process title for the child processes (when ExaCheck is running in `processes` mode).
+- [tabulate][tabulate]: `tabulate` is used to format output into a table.
 
 ### Health Checks
 
 These dependencies are required for the various health checks to work.
 
-- [dnspython]: `dnspython` is used for the `dns` health check method.
-- [httpx]: `httpx` is used for the `http` health check method.
-- [icmplib]: `icmplib` is used for the `icmp` health check method.
-- [ntplib]: `ntplib` is used for the `ntp` health check method.
-- [pyrad]: `pyrad` is used for the `radius` health check method.
+- [dnspython][dnspython]: `dnspython` is used for the `dns` health check method.
+- [httpx][httpx]: `httpx` is used for the `http` health check method.
+- [icmplib][icmplib]: `icmplib` is used for the `icmp` health check method.
+- [ntplib][ntplib]: `ntplib` is used for the `ntp` health check method.
+- [pyrad][pyrad]: `pyrad` is used for the `radius` health check method.
 
 ### Command Line Interface
 
 These dependencies are required for the command line interface.
 
-- [Click]: `click` provides the command line interface.
+- [Click][Click]: `click` provides the command line interface.
 
 ## OS Requirements
 
@@ -61,9 +61,9 @@ There are no specific OS/distribution requirements.
 
 ### icmplib Note
 
-By default, [icmplib] is used in non-privileged mode. There **ARE** some requirements for this to work depending on the Linux distribution, see step 2 on the [icmplib without privileges] page.
+By default, [icmplib][icmplib] is used in non-privileged mode. There **ARE** some requirements for this to work depending on the Linux distribution, see step 2 on the [icmplib without privileges][icmplib without privileges] page.
 
-[ExaCheck Docker Deployment]: https://exacheck.net/deployment/docker
+[ExaCheck Docker Deployment]: https://exacheck.net/deployment/docker.html
 [ExaCheck PyProject]: https://github.com/exacheck/exacheck/blob/main/pyproject.toml
 [ExaBGP]: https://github.com/Exa-Networks/exabgp
 [Loguru]: https://github.com/Delgan/loguru

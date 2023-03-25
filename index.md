@@ -15,7 +15,7 @@ Health check services and advertise BGP routes using ExaBGP.
 
 ----
 
-[ExaCheck] works in conjunction with [ExaBGP] to health check services and announce BGP routes based on the availability of those services.
+[ExaCheck][ExaCheck] works in conjunction with [ExaBGP][ExaBGP] to health check services and announce BGP routes based on the availability of those services.
 
 ExaCheck is configured in a YAML based configuration file ([example][ExaCheck Sample Configuration]) which allows for easy configuration of health checks without having to create scripts.
 

@@ -3,7 +3,7 @@ title: Configuration Basics
 description: ExaCheck configuration file basic overview.
 layout: page
 nav_order: 0
-permalink: /configuration/basics
+permalink: /configuration/basics.html
 parent: Configuration
 ---
 
@@ -73,11 +73,11 @@ The full JSON schema for the configuration is available in the repository ([conf
 exacheck schema > configuration.json
 ```
 
-The configuration schema can be used to visualize the available configuration options using a tool such as [JSON Crack] or be used with an IDE when editing the configuration file.
+The configuration schema can be used to visualize the available configuration options using a tool such as [JSON Crack][JSON Crack] or be used with an IDE when editing the configuration file.
 
 ### VS Code Editing
 
-If using VS Code with the [YAML Language Server] the following header may be set in the configuration file:
+If using VS Code with the [YAML Language Server][YAML Language Server] the following header may be set in the configuration file:
 
 ```yaml
 ---

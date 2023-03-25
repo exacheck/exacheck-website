@@ -3,7 +3,7 @@ title: Docker
 description: Steps for deploying ExaCheck and ExaBGP in a Docker environment.
 layout: page
 nav_order: 20
-permalink: /deployment/docker
+permalink: /deployment/docker.html
 parent: Deployment
 ---
 
@@ -24,4 +24,4 @@ The pre-built Docker image can be used to easily deploy an up-to-date release of
 
 Coming soon.
 
-[ExaCheck Requirements]: https://exacheck.net/deployment/requirements
+[ExaCheck Requirements]: https://exacheck.net/deployment/requirements.html

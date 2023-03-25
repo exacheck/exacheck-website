@@ -3,7 +3,7 @@ title: Development
 description: ExaCheck development and contribution information.
 layout: page
 nav_order: 40
-permalink: /development
+permalink: /development.html
 ---
 
 # ExaCheck Development
@@ -25,10 +25,10 @@ To allow easy development a [development container][ExaCheck Development Contain
 
 To use the container you must have:
 
-- [VS Code]
-- [Docker]
-- [VS Code Remote Development Extension]
-- [VS Code Dev Containers Extension]
+- [VS Code][VS Code]
+- [Docker][Docker]
+- [VS Code Remote Development Extension][VS Code Remote Development Extension]
+- [VS Code Dev Containers Extension][VS Code Dev Containers Extension]
 
 For further information see the official [remote extension documentation][VS Code Remote Extension Docs] and [development container documentation][Development Containers Docs].
 
