@@ -8,6 +8,9 @@ url: https://exacheck.net
 aux_links:
   Website Source: https://github.com/exacheck/exacheck-web
 
+# Use dark theme
+color_scheme: dark
+
 # Add sitemap
 plugins:
   - jekyll-sitemap
@@ -16,7 +19,7 @@ plugins:
 
 # Add mermaid
 mermaid:
-  version: "10.0.2"
+  version: "9.4.3"
 
 # Footer "Edit this page on GitHub" link text
 gh_edit_link: true
