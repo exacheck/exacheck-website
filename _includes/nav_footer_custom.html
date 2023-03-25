@@ -8,15 +8,15 @@
 </footer>
 
 <script>
-const toggleLightMode = document.querySelector('.js-toggle-light-mode');
+    const toggleLightMode = document.querySelector('.js-toggle-light-mode');
 
-jtd.addEvent(toggleLightMode, 'click', function(){
-    if (jtd.getTheme() === 'light') {
-        jtd.setTheme('dark');
-        toggleDarkMode.textContent = 'Light Mode';
-    } else {
-        jtd.setTheme('light');
-        toggleDarkMode.textContent = 'Dark Mode';
-    }
-});
+    jtd.addEvent(toggleLightMode, 'click', function(){
+        if (jtd.getTheme() === 'light') {
+            jtd.setTheme('dark');
+            toggleLightMode.textContent = 'Light Mode';
+        } else {
+            jtd.setTheme('light');
+            toggleLightMode.textContent = 'Dark Mode';
+        }
+    });
 </script>
