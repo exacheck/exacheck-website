@@ -6,7 +6,7 @@ theme: just-the-docs
 url: https://exacheck.net
 
 aux_links:
-  Website Source: https://github.com/exacheck/exacheck-web
+  Contact: mailto:help@exacheck.net
 
 # Use dark theme
 color_scheme: dark
