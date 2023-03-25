@@ -1,5 +1,6 @@
 ---
 title: Home
+description: ExaCheck - Health check services and advertise BGP routes using ExaBGP.
 layout: home
 nav_order: 1
 permalink: /
@@ -36,8 +37,8 @@ The built in health check works fine for smaller environments where each service
 - Easy Docker deployment (see [docker-compose.yaml][ExaCheck docker-compose.yaml] for an example)
 
 [ExaCheck]: https://github.com/exacheck/exacheck
-[ExaCheck docker-compose.yaml]: https://github.com/exacheck/exacheck/docker-compose.yaml
-[ExaCheck Sample Configuration]: https://github.com/exacheck/exacheck/configuration.yaml
-[ExaCheck Configuration Schema]: https://github.com/exacheck/exacheck/configuration.json
+[ExaCheck docker-compose.yaml]: https://github.com/exacheck/exacheck/blob/main/docker-compose.yaml
+[ExaCheck Sample Configuration]: https://github.com/exacheck/exacheck/blob/main/configuration.yaml
+[ExaCheck Configuration Schema]: https://github.com/exacheck/exacheck/blob/main/configuration.json
 [ExaBGP]: https://github.com/Exa-Networks/exabgp
 [ExaBGP Healthcheck]: https://github.com/Exa-Networks/exabgp/blob/main/src/exabgp/application/healthcheck.py
