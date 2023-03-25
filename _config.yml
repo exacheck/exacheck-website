@@ -19,7 +19,7 @@ plugins:
 
 # Add mermaid
 mermaid:
-  version: "9.4.3"
+  path: "/assets/js/mermaid-9.4.3.min.js"
 
 # Footer "Edit this page on GitHub" link text
 gh_edit_link: true
