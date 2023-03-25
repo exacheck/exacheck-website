@@ -74,6 +74,7 @@ By default, [icmplib] is used in non-privileged mode. There **ARE** some require
 [dnspython]: https://www.dnspython.org/
 [httpx]: https://www.python-httpx.org/
 [icmplib]: https://github.com/ValentinBELYN/icmplib
+[ntplib]: https://github.com/cf-natali/ntplib
 [pyrad]: https://github.com/pyradius/pyrad
 [Click]: https://click.palletsprojects.com/
 [icmplib without privileges]: https://github.com/ValentinBELYN/icmplib/blob/main/docs/6-use-icmplib-without-privileges.md
