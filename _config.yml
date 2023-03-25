@@ -1,0 +1,39 @@
+# Common site config
+title: ExaCheck Documentation
+description: Scalable ExaBGP service health checker written in Python.
+theme: just-the-docs
+
+url: https://exacheck.net
+
+aux_links:
+  Website Source: https://github.com/exacheck/exacheck-web
+
+# Add sitemap
+plugins:
+  - jekyll-sitemap
+  - jekyll-last-modified-at
+  - jekyll-seo-tag
+
+# Add mermaid
+mermaid:
+  version: "10.0.2"
+
+# Footer "Edit this page on GitHub" link text
+gh_edit_link: true
+gh_edit_link_text: "Edit this page on GitHub."
+gh_edit_repository: "https://github.com/exacheck/exacheck-web"
+gh_edit_branch: "main"
+gh_edit_view_mode: "tree"
+
+# Add back to top
+back_to_top: true
+back_to_top_text: "Back to top"
+
+# External navigation links
+nav_external_links:
+  - title: ExaCheck Source
+    url: https://github.com/exacheck/exacheck
+    hide_icon: false
+  - title: ExaBGP
+    url: https://github.com/Exa-Networks/exabgp
+    hide_icon: false
