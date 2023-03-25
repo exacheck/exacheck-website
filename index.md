@@ -35,6 +35,7 @@ The built in health check works fine for smaller environments where each service
 - Choice of thread or process based health checks
 - JSON schema of configuration (see [configuration.json][ExaCheck Configuration Schema] for the current schema)
 - Easy Docker deployment (see [docker-compose.yaml][ExaCheck docker-compose.yaml] for an example)
+- Full IPv4 and IPv6 support; configurable per health check
 
 [ExaCheck]: https://github.com/exacheck/exacheck
 [ExaCheck docker-compose.yaml]: https://github.com/exacheck/exacheck/blob/main/docker-compose.yaml
