@@ -1,3 +1,22 @@
 <footer class="site-footer">
-    Latest release: 1.0.0
+    <p>
+        <button class="btn js-toggle-dark-mode">Dark Mode</button>
+    </p>
+    <p>
+        Latest release: <a href="https://github.com/exacheck/exacheck/releases/latest">1.0.0</a>
+    </p>
 </footer>
+
+<script>
+const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
+
+jtd.addEvent(toggleDarkMode, 'click', function(){
+    if (jtd.getTheme() === 'dark') {
+        jtd.setTheme('light');
+        toggleDarkMode.textContent = 'Dark Mode';
+    } else {
+        jtd.setTheme('dark');
+        toggleDarkMode.textContent = 'Light Mode';
+    }
+});
+</script>

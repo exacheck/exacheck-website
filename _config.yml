@@ -8,9 +8,6 @@ url: https://exacheck.net
 aux_links:
   Contact: mailto:help@exacheck.net
 
-# Use dark theme
-color_scheme: dark
-
 # Add sitemap
 plugins:
   - jekyll-sitemap
