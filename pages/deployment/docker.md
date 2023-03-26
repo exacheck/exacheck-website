@@ -24,4 +24,4 @@ The pre-built Docker image can be used to easily deploy an up-to-date release of
 
 Coming soon.
 
-[ExaCheck Requirements]: https://exacheck.net/deployment/requirements.html
+[ExaCheck Requirements]: /deployment/requirements.html

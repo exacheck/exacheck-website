@@ -1,0 +1,68 @@
+---
+title: Features
+description: ExaCheck features and tips and configuration hints.
+layout: page
+nav_order: 10
+permalink: /features.html
+---
+
+# ExaCheck Features
+{: .no_toc }
+
+ExaCheck is primarily targeted to centralized health checks; see the main features below.
+
+## Table of Contents
+{: .no_toc .text-delta }
+
+- TOC
+{:toc}
+
+---
+
+## Feature Overview
+
+- Live configuration reloads (adding/modifying/removing services)
+- Health checks implemented in pure python where possible; no need to write scripts or use chains of commands to validate output
+- Detailed logging available
+- Configuration validation (if using live configuration reloads, configuration is validated before application)
+- Out of the box sane defaults where possible
+- JSON schema of configuration (see [configuration.json][ExaCheck Configuration Schema] for the current schema)
+- Easy Docker deployment (see the [ExaCheck Docker deployment][ExaCheck Docker Deployment] page for instructions)
+- Full IPv4 and IPv6 support; configurable per health check
+
+## Configuration
+
+These are configuration specific features. For a basic overview of the configuration see the [configuration basics][ExaCheck Configuration Basics] page.
+
+### Configuration Reloads
+
+The configuration can have optional live reloads enabled. Simply changing the configuration file will cause ExaCheck to validate and apply changes automatically without needing to restart any services.
+
+## Configuration Validation
+
+[Pydantic][Pydantic] is used for configuration validation and to ensure correct data types are provided. If the configuration is not valid, ExaCheck will not start. If ExaCheck is already running and live reloads are enabled the invalid configuration will be skipped without change.
+
+## Logging
+
+[Loguru][Loguru] is used for logging. By default, logs are output to STDOUT only. Optionally, ExaCheck can be configured to log to a file and manage the rotation/compression of log files when they exceed a certain size. Logs output to a file are in a structured format to allow easy parsing.
+
+Extensive debugging/trace logging is available to help troubleshoot potential problems.
+
+## Process Naming
+
+ExaCheck processes are named based on the current task they are performing. As an example, the process list will show tasks like this:
+
+```bash
+ExaCheck Master Process [/code/configuration.yaml] - Sleeping for 30 seconds
+  ExaCheck: ICMP test to Google [up] - Sleeping
+  ExaCheck: TCP test to Google port 80 [up] - Sleeping
+  ExaCheck: File test to check if /tmp/test exists [up] - Sleeping
+  ExaCheck: DNS query to Cloudflare public resolver [up] - Sleeping
+  ExaCheck: DNS query to Cloudflare public resolver with validation [up] - Sleeping
+```
+
+[ExaCheck Docker Deployment]: /deployment/docker.html
+[ExaCheck Configuration Schema]: https://github.com/exacheck/exacheck/blob/main/configuration.json
+[ExaCheck Configuration Basics]: /configuration/basics.html
+[Pydantic]: https://docs.pydantic.dev/
+[Loguru]: https://github.com/Delgan/loguru

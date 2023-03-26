@@ -2,7 +2,7 @@
 title: Development
 description: ExaCheck development and contribution information.
 layout: page
-nav_order: 40
+nav_order: 50
 permalink: /development.html
 ---
 

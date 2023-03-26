@@ -63,7 +63,7 @@ There are no specific OS/distribution requirements.
 
 By default, [icmplib][icmplib] is used in non-privileged mode. There **ARE** some requirements for this to work depending on the Linux distribution, see step 2 on the [icmplib without privileges][icmplib without privileges] page.
 
-[ExaCheck Docker Deployment]: https://exacheck.net/deployment/docker.html
+[ExaCheck Docker Deployment]: /deployment/docker.html
 [ExaCheck PyProject]: https://github.com/exacheck/exacheck/blob/main/pyproject.toml
 [ExaBGP]: https://github.com/Exa-Networks/exabgp
 [Loguru]: https://github.com/Delgan/loguru
