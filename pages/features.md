@@ -53,13 +53,17 @@ Extensive debugging/trace logging is available to help troubleshoot potential pr
 ExaCheck processes are named based on the current task they are performing. As an example, the process list will show tasks like this:
 
 ```bash
-ExaCheck Master Process [/code/configuration.yaml] - Sleeping for 30 seconds
-  ExaCheck: ICMP test to Google [up] - Sleeping
-  ExaCheck: TCP test to Google port 80 [up] - Sleeping
-  ExaCheck: File test to check if /tmp/test exists [up] - Sleeping
-  ExaCheck: DNS query to Cloudflare public resolver [up] - Sleeping
-  ExaCheck: DNS query to Cloudflare public resolver with validation [up] - Sleeping
+ExaCheck Master Process [/code/configuration.yaml] - Sleeping for 29.999 seconds
+  ExaCheck: ICMP test to Google [up] - Sleeping for 13.902 seconds
+  ExaCheck: TCP test to Google port 80 [up] - Sleeping for 14.953 seconds
+  ExaCheck: File test to check if /tmp/test exists [up] - Sleeping for 14.999 seconds
+  ExaCheck: DNS query to Cloudflare public resolver [up] - Sleeping for 14.959 seconds
+  ExaCheck: DNS query to Cloudflare public resolver with validation [up] - Sleeping for 14.959 seconds
 ```
+
+## Process Monitoring
+
+The health check processes that are spawned are monitoring on a monitoring loop. Each health check process should handle its own exceptions however in the event of an unhandled exception the master process will re-spawn it automatically.
 
 [ExaCheck Docker Deployment]: /deployment/docker.html
 [ExaCheck Configuration Schema]: https://github.com/exacheck/exacheck/blob/main/configuration.json

@@ -30,9 +30,6 @@ The basic configuration schema looks like this:
 # Enable auto reload of configuration
 live_reload: true
 
-# Use processes for handling health checks
-executor: processes
-
 # The list of health checks
 checks:
   - name: Send DNS query to 192.0.2.1
