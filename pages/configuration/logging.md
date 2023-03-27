@@ -58,6 +58,7 @@ The `file` logging dictionary has the following configuration keys available:
 | `size`       | String (Size) | `10MB`              | The maximum log file size before it is rotated.                      |
 | `count`      | Integer       | `5`                 | The number of log files to keep after rotation.                      |
 | `compress`   | Bool          | `True`              | Compress rotated log files.                                          |
+| `formatter`  | String        | `None`              | The [custom log format](#custom-log-format) to use.                  |
 
 ### File Logging Examples
 
@@ -95,6 +96,7 @@ The `syslog` dictionary has the following keys available:
 | `structured`  | Bool                             | `True`     | Output logs in the [structured logging format](#structured-logging).    |
 | `destination` | `/dev/log`, hostname, IP address | `/dev/log` | The location to send logs to.                                           |
 | `port`        | Integer                          | `514`      | When logging to a hostname or IP address, the port to send the logs to. |
+| `formatter`   | String                           | `None`     | The [custom log format](#custom-log-format) to use.                     |
 
 ### Syslog Examples
 
@@ -120,4 +122,23 @@ logging:
     port: 514
 ```
 
+## Custom Log Format
+
+If you prefer to configure your own log format for messages, pass the `formatter` key to the file or syslog configuration dict. [Loguru][Loguru] is used for logging; the [Loguru API page][Loguru API Page] provides some details on what fields are available and examples of some formats.
+
+To aid in debugging, the `extra[process_name]` variable is always defined which contains the name of the process sending the log. The process name is set to the name of the health check or master for the monitoring process.
+
+As an example, a file based logger with the default format looks like this:
+
+```yaml
+---
+
+# Default log format at the INFO log level for file logs
+logging:
+  file:
+    formatter: "{time:YYYY-MM-DD HH:mm:ss.SSS} | {level: <8} | [{process}] {extra[process_name]} | {file}:{line} | {message}"
+```
+
 [lnav]: https://lnav.org/
+[Loguru]: https://loguru.readthedocs.io/en/stable/overview.html
+[Loguru API Page]: https://loguru.readthedocs.io/en/stable/api/logger.html

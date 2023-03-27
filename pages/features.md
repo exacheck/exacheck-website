@@ -60,12 +60,12 @@ Logs output to a syslog server default to a structured logging format to allow e
 ExaCheck processes are named based on the current task they are performing. As an example, the process list will show tasks like this:
 
 ```bash
-ExaCheck Master Process [/code/configuration.yaml] - Sleeping for 29.999 seconds
-  ExaCheck: ICMP test to Google [up] - Sleeping for 13.902 seconds
-  ExaCheck: TCP test to Google port 80 [up] - Sleeping for 14.953 seconds
-  ExaCheck: File test to check if /tmp/test exists [up] - Sleeping for 14.999 seconds
-  ExaCheck: DNS query to Cloudflare public resolver [up] - Sleeping for 14.959 seconds
-  ExaCheck: DNS query to Cloudflare public resolver with validation [up] - Sleeping for 14.959 seconds
+ExaCheck Master Process [/code/configuration.yaml]: Sleeping for 30 seconds
+  ExaCheck Worker [ICMP test to Google]: Sleeping for 13.908 seconds [up]
+  ExaCheck Worker [TCP test to Google port 80]: Sleeping for 14.952 seconds [up]
+  ExaCheck Worker [File test to check if /tmp/test exists]: Sleeping for 14.999 seconds [up]
+  ExaCheck Worker [DNS query to Cloudflare public resolver]: Sleeping for 14.954 seconds [up]
+  ExaCheck Worker [DNS query to Cloudflare public resolver with validation]: Sleeping for 14.957 seconds [up]
 ```
 
 ## Process Monitoring
