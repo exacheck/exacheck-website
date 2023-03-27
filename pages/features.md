@@ -21,6 +21,7 @@ ExaCheck is primarily targeted to centralized health checks; see the main featur
 
 ## Feature Overview
 
+- [Command line interface][ExaCheck Command Line Interface] to test the configuration and run ExaCheck easily
 - Live configuration reloads (adding/modifying/removing services)
 - Health checks implemented in pure python where possible; no need to write scripts or use chains of commands to validate output
 - Detailed logging available
@@ -38,15 +39,21 @@ These are configuration specific features. For a basic overview of the configura
 
 The configuration can have optional live reloads enabled. Simply changing the configuration file will cause ExaCheck to validate and apply changes automatically without needing to restart any services.
 
-## Configuration Validation
+### Configuration Validation
 
 [Pydantic][Pydantic] is used for configuration validation and to ensure correct data types are provided. If the configuration is not valid, ExaCheck will not start. If ExaCheck is already running and live reloads are enabled the invalid configuration will be skipped without change.
 
 ## Logging
 
-[Loguru][Loguru] is used for logging. By default, logs are output to STDOUT only. Optionally, ExaCheck can be configured to log to a file and manage the rotation/compression of log files when they exceed a certain size. Logs output to a file are in a structured format to allow easy parsing.
+[Loguru][Loguru] is used for logging. By default, logs are output to STDOUT only. Extensive debugging/trace logging is available to help troubleshoot potential problems; log levels can be configured per-log destination.
 
-Extensive debugging/trace logging is available to help troubleshoot potential problems.
+Optionally, ExaCheck can be configured to log to a file or to syslog (remote syslog servers supported). If using file based logging, the rotation/compression of the log files is managed by ExaCheck for you.
+
+For configuration examples and further information see the [logging configuration page][ExaCheck Configuration - Logging].
+
+### Structured Logging
+
+Logs output to a syslog server default to a structured logging format to allow easy parsing of logs. Logs output to a file can optionally have the structured logging format enabled; this is useful if using a tool such as [lnav][lnav].
 
 ## Process Naming
 
@@ -63,10 +70,13 @@ ExaCheck Master Process [/code/configuration.yaml] - Sleeping for 29.999 seconds
 
 ## Process Monitoring
 
-The health check processes that are spawned are monitoring on a monitoring loop. Each health check process should handle its own exceptions however in the event of an unhandled exception the master process will re-spawn it automatically.
+The health check processes that are spawned are monitored on a monitoring loop. Each health check process should handle its own exceptions however in the event of an unhandled exception the master process will re-spawn it automatically.
 
+[ExaCheck Command Line Interface]: /cli.html
 [ExaCheck Docker Deployment]: /deployment/docker.html
 [ExaCheck Configuration Schema]: https://github.com/exacheck/exacheck/blob/main/configuration.json
 [ExaCheck Configuration Basics]: /configuration/basics.html
+[ExaCheck Configuration - Logging]: /configuration/logging.html
 [Pydantic]: https://docs.pydantic.dev/
 [Loguru]: https://github.com/Delgan/loguru
+[lnav]: https://lnav.org/

@@ -9,7 +9,12 @@
 			"conda",
 			"exabgp",
 			"exacheck",
-			"icmplib"
+			"icmplib",
+			"lnav",
+			"Loguru",
+			"nexthop",
+			"Pydantic",
+			"syslogs"
 		]
 	}
 }

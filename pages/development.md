@@ -26,9 +26,9 @@ The current code follows these standards:
 - Formatted with [black][Black] with a configured line length maximum of 120
 - [mypy][mypy] for static type checking
 - [Flake8][Flake8] and [Pylint][Pylint] for linting
-- f strings used for variable interpolation
+- [f-strings][Python f-strings] used for variable interpolation
 
-The recommended way of editing the code is using VS Code with the development container (see below) which includes the relevant extensions and Python modules.
+The recommended way of editing the code is using VS Code with the [development container](#development-container) which includes the relevant extensions and Python modules.
 
 ### Logging
 
@@ -42,6 +42,18 @@ self.log.info(
     some_variable="An example variable",
 )
 ```
+
+## Health Checks
+
+Health check classes are developed with at least two methods:
+
+- `__init__`: The health check is configured. No actual check should be executed on init.
+- `check`: The actual health check method. The method is called each health check iteration without arguments. The health check must return a `CheckResult` object which contains the result of the check and any error, exception or log messages.
+
+The health check class init method only gets called once on startup of the worker. The init method must not perform any steps that may impact the subsequent health checks. Examples of things **not to do**:
+
+- Resolve a hostname to an IP address: If the IP address for the hostname changes the health check won't know about it until its restarted.
+- Test if a file/directory exists which the health check relies on.
 
 ## Development Container
 
@@ -69,3 +81,4 @@ For further information see the official [remote extension documentation][VS Cod
 [Flake8]: https://flake8.pycqa.org/en/latest/
 [Pylint]: https://github.com/PyCQA/pylint
 [Loguru]: https://github.com/Delgan/loguru
+[Python f-strings]: https://peps.python.org/pep-0498/

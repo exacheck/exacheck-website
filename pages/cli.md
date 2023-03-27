@@ -33,13 +33,13 @@ By default logs are output to STDERR with the log level set to warning; to raise
 exacheck run -vvvvvv
 ```
 
-## Run
+## CLI Run Command
 
 The `run` command is used to execute ExaCheck. The following arguments are available:
 
 - `--file [filename] | -f [filename]`: The path to the [configuration file][ExaCheck Configuration File]. The default file is `/etc/exabgp/exacheck.yaml`.
 
-### Run Examples
+### Example Run Command Usage
 
 ```bash
 # Usual usage
@@ -49,7 +49,7 @@ exacheck run
 exacheck run -f /tmp/exacheck.yaml -vvvvvv
 ```
 
-## Test
+## CLI Test Command
 
 The `test` command is used to load and validate a configuration file. Any configuration errors will be reported. This may be used with automation tools that build the configuration file to test that it is working/valid before actual deployment.
 
@@ -57,7 +57,7 @@ The following arguments are available:
 
 - `--file [filename] | -f [filename]`: The path to the [configuration file][ExaCheck Configuration File]. The default file is `/etc/exabgp/exacheck.yaml`.
 
-### Test Examples
+### Example Test Command Usage
 
 ```bash
 # Test default configuration
@@ -67,11 +67,11 @@ exacheck test
 exacheck test -f /tmp/exacheck.yaml -vvvvvv
 ```
 
-## Schema
+## CLI Schema Command
 
 The `schema` command is used to dump the configuration file JSON schema to STDOUT. See the [configuration schema][ExaCheck Configuration File Schema] section for more details.
 
-### Schema Examples
+### Example Schema Command Usage
 
 ```bash
 # Output configuration schema to /tmp/schema.json

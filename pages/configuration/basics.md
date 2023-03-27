@@ -37,7 +37,7 @@ checks:
     args:
       method: dns
       host: 192.0.2.1
-      query: mydomain.com
+      query: example.com
     prefixes:
       - 192.0.2.255
     nexthop: 192.0.2.1
@@ -74,7 +74,7 @@ The configuration schema can be used to visualize the available configuration op
 
 ### VS Code Editing
 
-If using VS Code with the [YAML Language Server][YAML Language Server] the following header may be set in the configuration file:
+If using VS Code with the [YAML Language Server][YAML Language Server] the following header may be set in the configuration file (with the correct path to schema file):
 
 ```yaml
 ---
