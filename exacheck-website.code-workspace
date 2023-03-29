@@ -13,6 +13,7 @@
 			"lnav",
 			"Loguru",
 			"nexthop",
+			"NXDOMAIN",
 			"Pydantic",
 			"syslogs"
 		]
