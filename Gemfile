@@ -14,3 +14,6 @@ gem "jekyll-last-modified-at"
 
 # Include SEO tag plugin
 gem "jekyll-seo-tag"
+
+# Include github metadata plugin
+gem "jekyll-github-metadata"
