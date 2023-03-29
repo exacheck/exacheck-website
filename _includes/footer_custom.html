@@ -8,5 +8,5 @@
 </p>
 <p class="text-small text-grey-dk-100 mb-0">
     Page last modified on {{ page.last_modified_at | date: '%B %d, %Y' }} |
-    <a href="https://github.com/{{ site.repository }}/commit/{{ site.github.build_revision | slice: 0, 6 }}">#{{ site.github.build_revision | slice: 0, 6 }}</a>
+    <a href="https://github.com/{{ site.repository }}/commit/{{ site.github.build_revision | slice: 0, 6 }}">Build #{{ site.github.build_revision | slice: 0, 6 }}</a>
 </p>

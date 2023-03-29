@@ -63,6 +63,4 @@ checks:
       - 192.0.2.2
 ```
 
----
-
 [Python subprocess.run]: https://docs.python.org/3/library/subprocess.html#subprocess.run

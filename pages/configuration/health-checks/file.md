@@ -64,6 +64,4 @@ checks:
       - 192.0.2.2
 ```
 
----
-
 [Python os.access]: https://docs.python.org/3/library/os.html#os.access

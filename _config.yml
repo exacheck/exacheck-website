@@ -1,5 +1,5 @@
 # Common site config
-title: ExaCheck Documentation
+title: ExaCheck Docs
 description: Scalable ExaBGP service health checker written in Python.
 theme: just-the-docs
 
@@ -45,6 +45,9 @@ back_to_top_text: "Back to top"
 nav_external_links:
   - title: ExaCheck Source
     url: https://github.com/exacheck/exacheck
+    hide_icon: false
+  - title: ExaCheck Changelog
+    url: https://github.com/exacheck/exacheck/blob/main/CHANGELOG.md
     hide_icon: false
   - title: ExaBGP
     url: https://github.com/Exa-Networks/exabgp
