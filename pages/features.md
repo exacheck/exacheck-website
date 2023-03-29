@@ -24,7 +24,7 @@ ExaCheck is primarily targeted to centralized health checks; see the main featur
 - [Command line interface][ExaCheck Command Line Interface] to test the configuration and run ExaCheck easily
 - Live configuration reloads (adding/modifying/removing services)
 - Health checks implemented in pure python where possible; no need to write scripts or use chains of commands to validate output
-- Detailed logging available
+- [Detailed logging](#logging) available
 - Configuration validation (if using live configuration reloads, configuration is validated before application)
 - Out of the box sane defaults where possible
 - JSON schema of configuration (see [configuration.json][ExaCheck Configuration Schema] for the current schema)

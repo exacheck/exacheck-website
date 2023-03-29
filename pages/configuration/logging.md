@@ -1,5 +1,5 @@
 ---
-title: Logging Configuration
+title: Logging Config
 description: Configuration for logging of health checks to files or a remote syslog server.
 layout: page
 nav_order: 30

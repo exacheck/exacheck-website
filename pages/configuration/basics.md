@@ -45,18 +45,7 @@ checks:
 
 ## Check Configuration
 
-The heart of ExaCheck is the actual health checks. The health checks are configured in the `checks` key (see above example). The following health checks are available:
-
-| Check  | Check Method |                                             Description                                              |
-| ------ | ------------ | ---------------------------------------------------------------------------------------------------- |
-| DNS    | `dns`        | Query a DNS server and optionally check/validate the response.                                       |
-| File   | `file`       | Check that either a file exists or doesn't exist.                                                    |
-| HTTP   | `http`       | Send a HTTP request to a web server and optionally check/validate the response.                      |
-| ICMP   | `icmp`       | Ping a host to ensure that it responds.                                                              |
-| NTP    | `ntp`        | Send a NTP request to a NTP server and optionally ensure that the time is within a specified offset. |
-| RADIUS | `radius`     | Send a RADIUS authentication request to a RADIUS server.                                             |
-| Shell  | `shell`      | Run a shell command or script and ensure a successful response code is returned.                     |
-| TCP    | `tcp`        | Open a TCP connection to the specified host/port to ensure it is listening.                          |
+The heart of ExaCheck is the actual health checks. The health checks are configured in the `checks` key (see above example). For a full list of health checks and their configuration options see the [health check specific configuration page][ExaCheck Health Check Method Configuration].
 
 ### Check Arguments
 
@@ -83,6 +72,7 @@ If using VS Code with the [YAML Language Server][YAML Language Server] the follo
 
 VS Code will then be able to perform basic configuration validation and provide hints to aid you.
 
+[ExaCheck Health Check Method Configuration]: /configuration/health-checks.html#health-method-arguments
 [ExaCheck Configuration Schema]: https://github.com/exacheck/exacheck/blob/main/configuration.json
 [JSON Crack]: https://jsoncrack.com/editor
 [YAML Language Server]: https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml
