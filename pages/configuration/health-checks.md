@@ -67,23 +67,23 @@ The following settings are optional.
 
 The `args` dictionary has the following keys that are common to all health checks:
 
-|    Key    |      Type      | Default |                                                Description                                                |
-| --------- | -------------- | ------- | --------------------------------------------------------------------------------------------------------- |
-| `method`  | String         | `None`  | The actual health check method to use. This must be defined; see the below table for the list of methods. |
-| `timeout` | Integer, Float | `10`    | A timeout for the entire health check to run.[^4]                                                         |
+|    Key    |      Type      | Default |                                                                 Description                                                                 |
+| --------- | -------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `method`  | String         | `None`  | The actual health check method to use. This must be defined; see the [below table](#health-check-method-arguments) for the list of methods. |
+| `timeout` | Integer, Float | `10`    | A timeout for the entire health check to run.[^4]                                                                                           |
 
-### Health Method Arguments
+### Health Check Method Arguments
 
-| Check  | Check Method Name |                                             Description                                              |
-| ------ | ------------ | ---------------------------------------------------------------------------------------------------- |
-| DNS    | `dns`        | Query a DNS server and optionally check/validate the response.                                       |
-| File   | `file`       | Check that either a file exists or doesn't exist.                                                    |
-| HTTP   | `http`       | Send a HTTP request to a web server and optionally check/validate the response.                      |
-| ICMP   | `icmp`       | Ping a host to ensure that it responds.                                                              |
-| NTP    | `ntp`        | Send a NTP request to a NTP server and optionally ensure that the time is within a specified offset. |
-| RADIUS | `radius`     | Send a RADIUS authentication request to a RADIUS server.                                             |
-| Shell  | `shell`      | Run a shell command or script and ensure a successful response code is returned.                     |
-| TCP    | `tcp`        | Open a TCP connection to the specified host/port to ensure it is listening.                          |
+|                  Check                   | Check Method Name |                                             Description                                              |
+| ---------------------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------- |
+| [DNS][ExaCheck Health Check - DNS]       | `dns`             | Query a DNS server and optionally check/validate the response.                                       |
+| [File][ExaCheck Health Check - File]     | `file`            | Check that either a file exists or doesn't exist.                                                    |
+| [HTTP][ExaCheck Health Check - HTTP]     | `http`            | Send a HTTP or HTTPS request to a web server and optionally check/validate the response.             |
+| [ICMP][ExaCheck Health Check - ICMP]     | `icmp`            | Ping a host to ensure that it responds.                                                              |
+| [NTP][ExaCheck Health Check - NTP]       | `ntp`             | Send a NTP request to a NTP server and optionally ensure that the time is within a specified offset. |
+| [RADIUS][ExaCheck Health Check - RADIUS] | `radius`          | Send a RADIUS authentication request to a RADIUS server.                                             |
+| [Shell][ExaCheck Health Check - Shell]   | `shell`           | Run a shell command or script and ensure a successful response code is returned.                     |
+| [TCP][ExaCheck Health Check - TCP]       | `tcp`             | Open a TCP connection to the specified host/port to ensure it is listening.                          |
 
 ---
 
@@ -94,3 +94,12 @@ The `args` dictionary has the following keys that are common to all health check
 [^3]: Standard communities and extended communities are supported.
 
 [^4]: The timeout value controls the over all total time of a health check to run. Some health checks may have a separate time out defined for a specific step in the check process. As an example, the DNS health check has a `dns_timeout` key which defines how long to wait for a response from the DNS server.
+
+[ExaCheck Health Check - DNS]: /configuration/health-checks/dns.html
+[ExaCheck Health Check - File]: /configuration/health-checks/file.html
+[ExaCheck Health Check - HTTP]: /configuration/health-checks/http.html
+[ExaCheck Health Check - ICMP]: /configuration/health-checks/icmp.html
+[ExaCheck Health Check - NTP]: /configuration/health-checks/ntp.html
+[ExaCheck Health Check - RADIUS]: /configuration/health-checks/radius.html
+[ExaCheck Health Check - Shell]: /configuration/health-checks/shell.html
+[ExaCheck Health Check - TCP]: /configuration/health-checks/tcp.html

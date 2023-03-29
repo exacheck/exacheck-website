@@ -22,13 +22,13 @@ ExaCheck is primarily targeted to centralized health checks; see the main featur
 ## Feature Overview
 
 - [Command line interface][ExaCheck Command Line Interface] to test the configuration and run ExaCheck easily
-- Live configuration reloads (adding/modifying/removing services)
+- [Live configuration reloads][ExaCheck Configuration - Live Reload] (adding/modifying/removing services)
 - Health checks implemented in pure python where possible; no need to write scripts or use chains of commands to validate output
 - [Detailed logging](#logging) available
 - Configuration validation (if using live configuration reloads, configuration is validated before application)
 - Out of the box sane defaults where possible
 - JSON schema of configuration (see [configuration.json][ExaCheck Configuration Schema] for the current schema)
-- Easy Docker deployment (see the [ExaCheck Docker deployment][ExaCheck Docker Deployment] page for instructions)
+- [Easy Docker deployment][ExaCheck Docker Deployment]
 - Full IPv4 and IPv6 support; configurable per health check
 
 ## Configuration
@@ -37,7 +37,7 @@ These are configuration specific features. For a basic overview of the configura
 
 ### Configuration Reloads
 
-The configuration can have optional live reloads enabled. Simply changing the configuration file will cause ExaCheck to validate and apply changes automatically without needing to restart any services.
+The configuration can have [optional live reloads][ExaCheck Configuration - Live Reload] enabled. Simply changing the configuration file will cause ExaCheck to validate and apply changes automatically without needing to restart any services.
 
 ### Configuration Validation
 
@@ -77,6 +77,7 @@ The health check processes that are spawned are monitored on a monitoring loop. 
 [ExaCheck Configuration Schema]: https://github.com/exacheck/exacheck/blob/main/configuration.json
 [ExaCheck Configuration Basics]: /configuration/basics.html
 [ExaCheck Configuration - Logging]: /configuration/logging.html
+[ExaCheck Configuration - Live Reload]: /configuration/exacheck.html#live-configuration-reload
 [Pydantic]: https://docs.pydantic.dev/
 [Loguru]: https://github.com/Delgan/loguru
 [lnav]: https://lnav.org/

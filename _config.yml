@@ -8,6 +8,11 @@ url: https://exacheck.net
 aux_links:
   Contact: mailto:help@exacheck.net
 
+# Exclude files not required
+exclude:
+  - "exacheck-website.code-workspace"
+  - "LICENSE"
+
 # Use dark theme by default
 color_scheme: dark
 
@@ -40,3 +45,12 @@ nav_external_links:
   - title: ExaBGP
     url: https://github.com/Exa-Networks/exabgp
     hide_icon: false
+
+# Callout configuration
+callouts:
+  warning:
+    title: Warning
+    color: red
+  note:
+    title: Note
+    color: yellow
