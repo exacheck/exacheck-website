@@ -92,11 +92,11 @@ The `syslog` dictionary has the following keys available:
 
 |      Key      |               Type               |  Default   |                               Description                               |
 | ------------- | -------------------------------- | ---------- | ----------------------------------------------------------------------- |
-| `level`       | String                           | `INFO`     | The [log level](#log-levels) for the logger.                            |
-| `structured`  | Bool                             | `True`     | Output logs in the [structured logging format](#structured-logging).    |
 | `destination` | `/dev/log`, hostname, IP address | `/dev/log` | The location to send logs to.                                           |
-| `port`        | Integer                          | `514`      | When logging to a hostname or IP address, the port to send the logs to. |
 | `formatter`   | String                           | `None`     | The [custom log format](#custom-log-format) to use.                     |
+| `level`       | String                           | `INFO`     | The [log level](#log-levels) for the logger.                            |
+| `port`        | Integer                          | `514`      | When logging to a hostname or IP address, the port to send the logs to. |
+| `structured`  | Bool                             | `True`     | Output logs in the [structured logging format](#structured-logging).    |
 
 ### Syslog Examples
 
@@ -124,7 +124,7 @@ logging:
 
 ## Custom Log Format
 
-If you prefer to configure your own log format for messages, pass the `formatter` key to the file or syslog configuration dict. [Loguru][Loguru] is used for logging; the [Loguru API page][Loguru API Page] provides some details on what fields are available and examples of some formats.
+If you prefer to configure your own log format for messages, pass the `formatter` key to the `file` or `syslog` configuration dict. [Loguru][Loguru] is used for logging; the [Loguru API page][Loguru API Page] provides some details on what fields are available and examples of some formats.
 
 To aid in debugging, the `extra[process_name]` variable is always defined which contains the name of the process sending the log. The process name is set to the name of the health check or master for the monitoring process.
 
@@ -140,5 +140,5 @@ logging:
 ```
 
 [lnav]: https://lnav.org/
-[Loguru]: https://loguru.readthedocs.io/en/stable/overview.html
 [Loguru API Page]: https://loguru.readthedocs.io/en/stable/api/logger.html
+[Loguru]: https://loguru.readthedocs.io/en/stable/overview.html

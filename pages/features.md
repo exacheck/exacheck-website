@@ -73,11 +73,11 @@ ExaCheck Master Process [/code/configuration.yaml]: Sleeping for 30 seconds
 The health check processes that are spawned are monitored on a monitoring loop. Each health check process should handle its own exceptions however in the event of an unhandled exception the master process will re-spawn it automatically.
 
 [ExaCheck Command Line Interface]: /cli.html
-[ExaCheck Docker Deployment]: /deployment/docker.html
-[ExaCheck Configuration Schema]: https://github.com/exacheck/exacheck/blob/main/configuration.json
-[ExaCheck Configuration Basics]: /configuration/basics.html
-[ExaCheck Configuration - Logging]: /configuration/logging.html
 [ExaCheck Configuration - Live Reload]: /configuration/exacheck.html#live-configuration-reload
-[Pydantic]: https://docs.pydantic.dev/
-[Loguru]: https://github.com/Delgan/loguru
+[ExaCheck Configuration - Logging]: /configuration/logging.html
+[ExaCheck Configuration Basics]: /configuration/basics.html
+[ExaCheck Configuration Schema]: https://github.com/exacheck/exacheck/blob/main/configuration.json
+[ExaCheck Docker Deployment]: /deployment/docker.html
 [lnav]: https://lnav.org/
+[Loguru]: https://github.com/Delgan/loguru
+[Pydantic]: https://docs.pydantic.dev/

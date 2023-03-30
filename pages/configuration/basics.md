@@ -72,7 +72,7 @@ If using VS Code with the [YAML Language Server][YAML Language Server] the follo
 
 VS Code will then be able to perform basic configuration validation and provide hints to aid you.
 
-[ExaCheck Health Check Method Configuration]: /configuration/health-checks.html#health-method-arguments
 [ExaCheck Configuration Schema]: https://github.com/exacheck/exacheck/blob/main/configuration.json
+[ExaCheck Health Check Method Configuration]: /configuration/health-checks.html#health-method-arguments
 [JSON Crack]: https://jsoncrack.com/editor
 [YAML Language Server]: https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml

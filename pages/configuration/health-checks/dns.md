@@ -34,36 +34,27 @@ The DNS health check **requires** the following keys to be defined:
 
 |    Key    |         Type          | Default |                      Description                      |
 | --------- | --------------------- | ------- | ----------------------------------------------------- |
-| `timeout` | Integer, Float        | `10`    | The over all timeout for the check to execute.        |
 | `host`    | Host name, IP address | `None`  | The host name or IP address to send the DNS query to. |
 | `query`   | String                | `None`  | The name to query for.                                |
+| `timeout` | Integer, Float        | `10`    | The over all timeout for the check to execute.        |
 
 The following arguments are available for the DNS health check
 
 |        Key        |                Type                | Default |                                          Description                                          |
 | ----------------- | ---------------------------------- | ------- | --------------------------------------------------------------------------------------------- |
 | `address_family`  | `ipv4`, `ipv6`                     | `None`  | Force the DNS query to a specific address family.[^1]                                         |
-| `query_type`      | [DNS query type](#dns-query-types) | `soa`   | The type of query to send.                                                                    |
-| `response`        | Pattern                            | `None`  | A regex to search for in the response.                                                        |
-| `protocol`        | `udp`, `tcp`                       | `udp`   | The protocol to use for the DNS query.                                                        |
-| `port`            | Integer                            | `53`    | The port to send the DNS request to.                                                          |
 | `dns_timeout`     | Integer, Float                     | `5`     | The timeout for the DNS response from the DNS server.[^2]                                     |
+| `port`            | Integer                            | `53`    | The port to send the DNS request to.                                                          |
+| `protocol`        | `udp`, `tcp`                       | `udp`   | The protocol to use for the DNS query.                                                        |
+| `query_type`      | [DNS query type](#dns-query-types) | `soa`   | The type of query to send.                                                                    |
 | `require_resolve` | Bool                               | `True`  | Require the DNS response to return a valid answer (not a NXDOMAIN or other failure response). |
+| `response`        | Pattern                            | `None`  | A regex to search for in the response.                                                        |
 
 ### DNS Query Types
 
 The DNS query type may be set to one of the following values:
 
-- `a`
-- `aaaa`
-- `any`
-- `cname`
-- `mx`
-- `ns`
-- `ptr`
-- `soa`
-- `srv`
-- `txt`
+`a`, `aaaa`, `any`, `cname`, `mx`, `ns`, `ptr`, `soa`, `srv`, `txt`
 
 ## DNS Health Check Configuration Samples
 
@@ -105,6 +96,7 @@ checks:
       method: dns
       host: 10.0.0.3
       query: example.com
+      query_type: a
       response: ^10\.255\.0\.0$
     nexthop: 192.168.0.3
     prefixes:

@@ -27,12 +27,11 @@ The ExaCheck settings are defined at the top level of the YAML dictionary. The f
 |          Key          |      Type      | Default |                                                            Description                                                             |
 | --------------------- | -------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | `live_reload`         | Bool           | `False` | Enable [live configuration reloads](#live-configuration-reload).                                                                   |
-| `reload_interval`     | Integer, Float | `60`    | The interval in settings for checking the configuration file for changes.                                                          |
-| `monitoring_interval` | Integer, Float | `30`    | The interval in settings for [monitoring the individual check processes](#process-monitoring-interval) to ensure they are healthy. |
+| `monitoring_interval` | Integer, Float | `30`    | The interval in settings for [monitoring processes/configuration changes](#monitoring-interval) to ensure they are healthy. |
 
 ## Live Configuration Reload
 
-The `live_reload` configuration key can be used to control if the live reload setting is enabled. When enabled, the configuration file is checked every *`reload_interval`* seconds for changes. If the content of the file differs the configuration file will then be parsed/validated.
+The `live_reload` configuration key can be used to control if the live reload setting is enabled. When enabled, the configuration file is checked every *`monitoring_interval`* seconds for changes. If the content of the file differs the configuration file will then be parsed/validated.
 
 If the configuration file is valid the configuration values for each check will be compared to find any additions/removals/modifications. Should any checks have changes the following happens:
 
@@ -46,9 +45,9 @@ The option is set to `False` by default as this behaviour may be undesirable in 
 
 If live reloading is disabled you cannot enable it without restarting ExaCheck. Likewise, if live reloading is enabled and you disable it the only way to enable it again is by restarting ExaCheck.
 
-## Process Monitoring Interval
+## Monitoring Interval
 
-The monitoring interval configures how often the ExaCheck master process checks the health check processes. If a health check process fails due to an unhandled exception it will be re-spawned automatically in this monitoring loop.
+The monitoring interval configures how often the ExaCheck master process checks the health check processes and tests for any configuration changes. If a health check process fails due to an unhandled exception it will be re-spawned automatically in this monitoring loop.
 
 ## Configuration Examples
 
@@ -58,10 +57,7 @@ The following configuration shows the default values:
 ---
 
 # Live reloads disabled by default
-live_reload: False
-
-# When live reloads are enabled, the default reload interval is 60
-reload_interval: 60
+live_reload: false
 
 # Health check processes are monitored every 30 seconds
 monitoring_interval: 30

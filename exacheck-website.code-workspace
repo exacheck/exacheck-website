@@ -7,14 +7,19 @@
 	"settings": {
 		"cSpell.words": [
 			"conda",
+			"dnspython",
 			"exabgp",
 			"exacheck",
+			"httpx",
 			"icmplib",
 			"lnav",
 			"Loguru",
 			"nexthop",
+			"ntplib",
 			"NXDOMAIN",
 			"Pydantic",
+			"pyrad",
+			"setproctitle",
 			"syslogs"
 		]
 	}

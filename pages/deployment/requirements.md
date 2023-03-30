@@ -48,6 +48,7 @@ These dependencies are required for the various health checks to work.
 - [icmplib][icmplib]: `icmplib` is used for the `icmp` health check method.
 - [ntplib][ntplib]: `ntplib` is used for the `ntp` health check method.
 - [pyrad][pyrad]: `pyrad` is used for the `radius` health check method.
+- [python-ldap][python-ldap]: `python-ldap` is used for the `ldap` health check method.
 
 ### Command Line Interface
 
@@ -63,18 +64,19 @@ There are no specific OS/distribution requirements.
 
 By default, [icmplib][icmplib] is used in non-privileged mode. There **ARE** some requirements for this to work depending on the Linux distribution, see step 2 on the [icmplib without privileges][icmplib without privileges] page.
 
+[Click]: https://click.palletsprojects.com/
+[dnspython]: https://www.dnspython.org/
+[ExaBGP]: https://github.com/Exa-Networks/exabgp
 [ExaCheck Docker Deployment]: /deployment/docker.html
 [ExaCheck PyProject]: https://github.com/exacheck/exacheck/blob/main/pyproject.toml
-[ExaBGP]: https://github.com/Exa-Networks/exabgp
+[httpx]: https://www.python-httpx.org/
+[icmplib without privileges]: https://github.com/ValentinBELYN/icmplib/blob/main/docs/6-use-icmplib-without-privileges.md
+[icmplib]: https://github.com/ValentinBELYN/icmplib
 [Loguru]: https://github.com/Delgan/loguru
+[ntplib]: https://github.com/cf-natali/ntplib
 [Pydantic]: https://docs.pydantic.dev/
+[pyrad]: https://github.com/pyradius/pyrad
+[python-ldap]: https://www.python-ldap.org
 [PyYAML]: https://pyyaml.org/
 [setproctitle]: https://github.com/dvarrazzo/py-setproctitle
 [tabulate]: https://github.com/astanin/python-tabulate
-[dnspython]: https://www.dnspython.org/
-[httpx]: https://www.python-httpx.org/
-[icmplib]: https://github.com/ValentinBELYN/icmplib
-[ntplib]: https://github.com/cf-natali/ntplib
-[pyrad]: https://github.com/pyradius/pyrad
-[Click]: https://click.palletsprojects.com/
-[icmplib without privileges]: https://github.com/ValentinBELYN/icmplib/blob/main/docs/6-use-icmplib-without-privileges.md

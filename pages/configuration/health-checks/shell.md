@@ -31,8 +31,8 @@ The shell health check **requires** the following keys to be defined:
 
 |    Key    |      Type      | Default |                  Description                   |
 | --------- | -------------- | ------- | ---------------------------------------------- |
-| `timeout` | Integer, Float | `10`    | The over all timeout for the check to execute. |
 | `command` | String         | `None`  | The shell command or script to execute.        |
+| `timeout` | Integer, Float | `10`    | The over all timeout for the check to execute. |
 
 ## Shell Health Check Configuration Samples
 

@@ -31,9 +31,9 @@ The file health check **requires** the following keys to be defined:
 
 |    Key    |      Type      | Default |                  Description                   |
 | --------- | -------------- | ------- | ---------------------------------------------- |
-| `timeout` | Integer, Float | `10`    | The over all timeout for the check to execute. |
-| `path`    | Path           | `None`  | The path to the file to test.                  |
 | `exists`  | Bool           | `True`  | Ensure that the file exists.                   |
+| `path`    | Path           | `None`  | The path to the file to test.                  |
+| `timeout` | Integer, Float | `10`    | The over all timeout for the check to execute. |
 
 ## File Health Check Configuration Samples
 
@@ -60,6 +60,7 @@ checks:
     args:
       method: file
       path: /tmp/test2
+      exists: false
     prefixes:
       - 192.0.2.2
 ```

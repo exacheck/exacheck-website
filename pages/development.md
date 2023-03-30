@@ -24,9 +24,9 @@ Looking to contribute to ExaCheck or modify it for your requirements? See below.
 The current code follows these standards:
 
 - Formatted with [black][Black] with a configured line length maximum of 120
-- [mypy][mypy] for static type checking
-- [Flake8][Flake8] and [Pylint][Pylint] for linting
 - [f-strings][Python f-strings] used for variable interpolation
+- [Flake8][Flake8] and [Pylint][Pylint] for linting
+- [mypy][mypy] for static type checking
 
 The recommended way of editing the code is using VS Code with the [development container](#development-container) which includes the relevant extensions and Python modules.
 
@@ -61,24 +61,24 @@ To allow easy development a [development container][ExaCheck Development Contain
 
 To use the container you must have:
 
-- [VS Code][VS Code]
 - [Docker][Docker]
-- [VS Code Remote Development Extension][VS Code Remote Development Extension]
 - [VS Code Dev Containers Extension][VS Code Dev Containers Extension]
+- [VS Code Remote Development Extension][VS Code Remote Development Extension]
+- [VS Code][VS Code]
 
 For further information see the official [remote extension documentation][VS Code Remote Extension Docs] and [development container documentation][Development Containers Docs].
 
-[ExaCheck Development Container]: https://github.com/exacheck/exacheck/blob/main/.devcontainer
-[Conda]: https://docs.conda.io/en/latest/
-[VS Code]: https://code.visualstudio.com/
-[Docker]: https://www.docker.com/
-[VS Code Remote Development Extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack
-[VS Code Dev Containers Extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
-[VS Code Remote Extension Docs]: https://code.visualstudio.com/docs/remote/remote-overview
-[Development Containers Docs]: https://code.visualstudio.com/docs/devcontainers/containers
 [Black]: https://github.com/psf/black
-[mypy]: https://www.mypy-lang.org/
+[Conda]: https://docs.conda.io/en/latest/
+[Development Containers Docs]: https://code.visualstudio.com/docs/devcontainers/containers
+[Docker]: https://www.docker.com/
+[ExaCheck Development Container]: https://github.com/exacheck/exacheck/blob/main/.devcontainer
 [Flake8]: https://flake8.pycqa.org/en/latest/
-[Pylint]: https://github.com/PyCQA/pylint
 [Loguru]: https://github.com/Delgan/loguru
+[mypy]: https://www.mypy-lang.org/
+[Pylint]: https://github.com/PyCQA/pylint
 [Python f-strings]: https://peps.python.org/pep-0498/
+[VS Code Dev Containers Extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
+[VS Code Remote Development Extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack
+[VS Code Remote Extension Docs]: https://code.visualstudio.com/docs/remote/remote-overview
+[VS Code]: https://code.visualstudio.com/

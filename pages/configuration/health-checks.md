@@ -34,18 +34,18 @@ The following settings **must** be defined for each health check (they have no d
 
 |    Key     |                       Type                        |                                  Description                                   |
 | ---------- | ------------------------------------------------- | ------------------------------------------------------------------------------ |
-| `name`     | String                                            | The name for the health check.                                                 |
-| `prefixes` | Array[IP addresses/IP networks]                   | The list of IP addresses or prefixes to advertise when the service is healthy. |
-| `nexthop`  | IP address, `self`                                | The next hop IP address or `self` to advertise when the service is healthy.    |
 | `args`     | [Health check arguments](#health-check-arguments) | The health check to use and any configuration specific to the health check.    |
+| `name`     | String                                            | The name for the health check.                                                 |
+| `nexthop`  | IP address, `self`                                | The next hop IP address or `self` to advertise when the service is healthy.    |
+| `prefixes` | Array[IP addresses/IP networks]                   | The list of IP addresses or prefixes to advertise when the service is healthy. |
 
 The following settings **may** be defined in the configuration for each health check. If you do not define them the default value will be used.
 
 |    Key     |      Type      | Default |                                         Description                                         |
 | ---------- | -------------- | ------- | ------------------------------------------------------------------------------------------- |
+| `fall`     | Integer        | `3`     | The number of consecutive health checks that fail before the route is withdrawn.            |
 | `interval` | Integer, Float | `15`    | The interval in seconds between each health check.                                          |
 | `rise`     | Integer        | `3`     | The number of consecutive health checks that are successful before the route is advertised. |
-| `fall`     | Integer        | `3`     | The number of consecutive health checks that fail before the route is withdrawn.            |
 
 ### Optional Health Check Configuration
 
@@ -53,15 +53,15 @@ The following settings are optional.
 
 |        Key         |          Type          | Default |                                         Description                                         |
 | ------------------ | ---------------------- | ------- | ------------------------------------------------------------------------------------------- |
-| `description`      | String                 | `None`  | A description for the health check. The description is not used by anything.                |
-| `path_id`          | IPv4 address, Integer  | `None`  | A BGP path ID to advertise with the route. Used with BGP add-path.                          |
-| `metric`           | Integer                | `None`  | A metric (MED) to advertise with the route.                                                 |
-| `metric_down`      | Integer                | `None`  | If set, the metric to advertise for an unhealthy route.[^1]                                 |
-| `local_preference` | Integer                | `None`  | A local preference value to advertise with the route.                                       |
-| `disable`          | File path              | `None`  | A path to a file that will be used to mark the service as down.[^2]                         |
-| `neighbors`        | Array[IP addresses]    | `None`  | When set, the route will only be advertised to these neighbor IPs.                          |
-| `communities`      | Array[BGP communities] | `None`  | A list of BGP communities to advertise with the route.[^3]                                  |
 | `as_path`          | String, Integer        | `None`  | An optional AS path to advertise with the route.                                            |
+| `communities`      | Array[BGP communities] | `None`  | A list of BGP communities to advertise with the route.[^3]                                  |
+| `description`      | String                 | `None`  | A description for the health check. The description is not used by anything.                |
+| `disable`          | File path              | `None`  | A path to a file that will be used to mark the service as down.[^2]                         |
+| `local_preference` | Integer                | `None`  | A local preference value to advertise with the route.                                       |
+| `metric_down`      | Integer                | `None`  | If set, the metric to advertise for an unhealthy route.[^1]                                 |
+| `metric`           | Integer                | `None`  | A metric (MED) to advertise with the route.                                                 |
+| `neighbors`        | Array[IP addresses]    | `None`  | When set, the route will only be advertised to these neighbor IPs.                          |
+| `path_id`          | IPv4 address, Integer  | `None`  | A BGP path ID to advertise with the route. Used with BGP add-path.                          |
 
 ## Health Check Arguments
 
@@ -80,6 +80,7 @@ The `args` dictionary has the following keys that are common to all health check
 | [File][ExaCheck Health Check - File]     | `file`            | Check that either a file exists or doesn't exist.                                                    |
 | [HTTP][ExaCheck Health Check - HTTP]     | `http`            | Send a HTTP or HTTPS request to a web server and optionally check/validate the response.             |
 | [ICMP][ExaCheck Health Check - ICMP]     | `icmp`            | Ping a host to ensure that it responds.                                                              |
+| [LDAP][ExaCheck Health Check - LDAP]     | `ldap`            | Send a request to an LDAP server and ensure it responds as expected.                                 |
 | [NTP][ExaCheck Health Check - NTP]       | `ntp`             | Send a NTP request to a NTP server and optionally ensure that the time is within a specified offset. |
 | [RADIUS][ExaCheck Health Check - RADIUS] | `radius`          | Send a RADIUS authentication request to a RADIUS server.                                             |
 | [Shell][ExaCheck Health Check - Shell]   | `shell`           | Run a shell command or script and ensure a successful response code is returned.                     |
@@ -99,6 +100,7 @@ The `args` dictionary has the following keys that are common to all health check
 [ExaCheck Health Check - File]: /configuration/health-checks/file.html
 [ExaCheck Health Check - HTTP]: /configuration/health-checks/http.html
 [ExaCheck Health Check - ICMP]: /configuration/health-checks/icmp.html
+[ExaCheck Health Check - LDAP]: /configuration/health-checks/ldap.html
 [ExaCheck Health Check - NTP]: /configuration/health-checks/ntp.html
 [ExaCheck Health Check - RADIUS]: /configuration/health-checks/radius.html
 [ExaCheck Health Check - Shell]: /configuration/health-checks/shell.html
