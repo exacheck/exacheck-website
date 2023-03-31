@@ -52,13 +52,13 @@ The `file` logging dictionary has the following configuration keys available:
 
 |     Key      |     Type      |       Default       |                             Description                              |
 | ------------ | ------------- | ------------------- | -------------------------------------------------------------------- |
-| `level`      | String        | `INFO`              | The [log level](#log-levels) for the logger.                         |
-| `structured` | Bool          | `False`             | Output logs in the [structured logging format](#structured-logging). |
-| `file`       | String (Path) | `/tmp/exacheck.log` | The file to log to. Must be writable by ExaCheck.                    |
-| `size`       | String (Size) | `10MB`              | The maximum log file size before it is rotated.                      |
-| `count`      | Integer       | `5`                 | The number of log files to keep after rotation.                      |
 | `compress`   | Bool          | `True`              | Compress rotated log files.                                          |
+| `count`      | Integer       | `5`                 | The number of log files to keep after rotation.                      |
+| `file`       | String (Path) | `/tmp/exacheck.log` | The file to log to. Must be writable by ExaCheck.                    |
 | `formatter`  | String        | `None`              | The [custom log format](#custom-log-format) to use.                  |
+| `level`      | String        | `INFO`              | The [log level](#log-levels) for the logger.                         |
+| `size`       | String (Size) | `10MB`              | The maximum log file size before it is rotated.                      |
+| `structured` | Bool          | `False`             | Output logs in the [structured logging format](#structured-logging). |
 
 ### File Logging Examples
 
