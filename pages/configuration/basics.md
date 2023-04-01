@@ -10,7 +10,7 @@ parent: Configuration
 # ExaCheck Configuration Basics
 {: .no_toc }
 
-ExaCheck reads from a YAML configuration file containing the list of checks. By default, the configuration file will be loaded from `/etc/exabgp/exacheck.yaml`.
+ExaCheck reads from a YAML or JSON configuration file containing the list of checks. By default, the configuration file will be loaded from `/etc/exabgp/exacheck.yaml`. If the configuration file extension is `json`, the file will be loaded as a JSON file rather than YAML.
 
 ## Table of Contents
 {: .no_toc .text-delta }

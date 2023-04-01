@@ -17,7 +17,7 @@ Health check services and advertise BGP routes using ExaBGP.
 
 [ExaCheck][ExaCheck GitHub] works in conjunction with [ExaBGP][ExaBGP GitHub] to health check services and announce BGP routes based on the availability of those services.
 
-ExaCheck is configured in a YAML based configuration file ([example][ExaCheck Sample Configuration]) which allows for easy configuration of health checks without having to create scripts.
+ExaCheck is configured in a YAML or JSON based configuration file ([example][ExaCheck Sample Configuration]) which allows for easy configuration of health checks without having to create scripts.
 
 ## Example Usage Scenario
 
