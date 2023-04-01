@@ -38,6 +38,7 @@ These dependencies are used as a part of the main script.
 - [PyYAML][PyYAML]: `pyyaml` is used to load and parse the configuration file into a dict, ready for [Pydantic][Pydantic] to consume.
 - [setproctitle][setproctitle]: `setproctitle` will change the process title for the child processes (when ExaCheck is running in `processes` mode).
 - [tabulate][tabulate]: `tabulate` is used to format output into a table.
+- [UltraJSON][UltraJSON]: `ujson` is used for loading configuration from JSON.
 
 ### Health Checks
 
@@ -80,3 +81,4 @@ By default, [icmplib][icmplib] is used in non-privileged mode. There **ARE** som
 [PyYAML]: https://pyyaml.org/
 [setproctitle]: https://github.com/dvarrazzo/py-setproctitle
 [tabulate]: https://github.com/astanin/python-tabulate
+[UltraJSON]: https://github.com/ultrajson/ultrajson
