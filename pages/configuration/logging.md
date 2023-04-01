@@ -22,54 +22,116 @@ By default, logs are only output to STDERR. To configure [file based logging](#f
 
 ## Basic Logging Configuration Structure
 
-Logging settings are stored in a dictionary named `logging` in the configuration file. If the dictionary is not defined, file logging and syslog are disabled (the default).
+Logging settings are stored in a key named `logging` in the configuration file. An array of logging configurations are defined in the key. If the key is not defined, file logging and syslog are disabled (the default). As this value is an array you may create as many loggers as you wish. As an example, to create a log file for route announce and withdraw events with a separate log file for health check debug logs:
 
-If the dictionary is defined, one (or both) of the following keys must exist:
+```yaml
+---
 
-- `file`: File based logging configuration
-- `syslog`: Syslog based logging configuration
+# Configure logging
+logging:
 
-To enable file and/or syslog logging with the default settings simply create an empty dictionary.
+  # Create log file for announce and withdraw events
+  - log_type: file
+    file: /var/log/exacheck/announcement.log
+    events: [ announce, withdraw ]
 
-## Log Levels
+  # Create log file for health check related information at the info level
+  - log_type: file
+    file: /var/log/exacheck/healthcheck.log
+    subsystems: [ healthcheck ]
+```
 
-The following log levels are available (in order of least verbose to most verbose):
+If configuring multiple file loggers the destination file **must** be unique per logger; you cannot have two file loggers to the same file.
 
-- `ERROR`
-- `WARNING`
-- `INFO`
-- `SUCCESS`
-- `DEBUG`
-- `TRACE`
+## Log Filtering/Log Levels
+
+Various options are available to filter logs to the specific events you need.
+
+- `events`: Filter by event types such as a route being announced, an error or debugging information.
+- `subsystems`: Filter by subsystems sending the log such as the master process, configuration process or an individual health check.
+- `level`: Filter logs to a specific log level.
+
+The filters may be combined together; as an example:
+
+```yaml
+---
+
+# Configure logging
+logging:
+
+  # Create a log file to dump raw results of health checks
+  - log_type: file
+    file: /var/log/exacheck/healthcheck_raw.log
+    events: [ datadump ]
+    subsystems: [ healthcheck ]
+```
+
+### Log Events
+
+The following log events are available:
+
+| Event Name |                                         Description                                          |
+| ---------- | -------------------------------------------------------------------------------------------- |
+| `announce` | Route announcement events.                                                                   |
+| `withdraw` | Route withdraw events.                                                                       |
+| `error`    | Error events.                                                                                |
+| `debug`    | Debug events; verbose. The majority of messages require the log level set to debug or trace. |
+| `log`      | General log events that do not fit elsewhere.                                                |
+| `datadump` | Raw data dumps of objects. If using structured logging these events will be skipped.         |
+
+The default value is `[ announce, withdraw, error, log, debug ]`.
+
+### Log Subsystems
+
+The following log subsystems are available:
+
+| Subsystem Name  |                     Description                     |
+| --------------- | --------------------------------------------------- |
+| `healthcheck`   | The health check itself.                            |
+| `worker`        | The worker that triggers health checks.             |
+| `master`        | The master process.                                 |
+| `configuration` | The configuration manager.                          |
+| `utility`       | Various utilities such as the process name manager. |
+| `announcer`     | The route announcer.                                |
+
+The default value is: `[ healthcheck, worker, master, configuration, utility, announcer ]`.
+
+### Log Levels
+
+The standard log levels are available: `error`, `warning`, `info`, `success`, `debug` and `trace`. The default log level is `info`.
 
 ## Structured Logging
 
-Structured logging can be used to allow easy parsing of logs with tools such as [lnav][lnav] however it makes it slightly harder to read the raw logs. Logs sent to syslog will default to the structured format while logs written to a file will default to a more human readable format. This configuration can be changed by setting the `structured` key to `True` or `False` depending on your needs.
+Structured logging can be used to allow easy parsing of logs with tools such as [lnav][lnav] however it makes it slightly harder to read the raw logs. Logs sent to syslog will default to the structured format while logs written to a file will default to a more human readable format. This configuration can be changed by setting the `structured` key to `true` or `false` depending on your needs.
 
 ## File Logging Configuration
 
-The `file` logging dictionary has the following configuration keys available:
+To enable logging to a file set the `log_type` key to `file`. The following options are available for file logging:
 
-|     Key      |     Type      |       Default       |                             Description                              |
-| ------------ | ------------- | ------------------- | -------------------------------------------------------------------- |
-| `compress`   | Bool          | `True`              | Compress rotated log files.                                          |
-| `count`      | Integer       | `5`                 | The number of log files to keep after rotation.                      |
-| `file`       | String (Path) | `/tmp/exacheck.log` | The file to log to. Must be writable by ExaCheck.                    |
-| `formatter`  | String        | `None`              | The [custom log format](#custom-log-format) to use.                  |
-| `level`      | String        | `INFO`              | The [log level](#log-levels) for the logger.                         |
-| `size`       | String (Size) | `10MB`              | The maximum log file size before it is rotated.                      |
-| `structured` | Bool          | `False`             | Output logs in the [structured logging format](#structured-logging). |
+|     Key      |     Type      |                               Default                                |                             Description                              |
+| ------------ | ------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `compress`   | Bool          | `True`                                                               | Compress rotated log files.                                          |
+| `count`      | Integer       | `5`                                                                  | The number of log files to keep after rotation.                      |
+| `events`     | Array(String) | `[ announce, withdraw, error, log, debug ]`                          | The events that should be logged to the file.                        |
+| `file`       | String (Path) | `/tmp/exacheck.log`                                                  | The file to log to. Must be writable by ExaCheck.                    |
+| `formatter`  | String        | `None`                                                               | The [custom log format](#custom-log-format) to use.                  |
+| `level`      | String        | `info`                                                               | The [log level](#log-levels) for the logger.                         |
+| `size`       | String (Size) | `10MB`                                                               | The maximum log file size before it is rotated.                      |
+| `structured` | Bool          | `False`                                                              | Output logs in the [structured logging format](#structured-logging). |
+| `subsystems` | Array(String) | `[ healthcheck, worker, master, configuration, utility, announcer ]` | The subsystems that can log to the file.                             |
 
 ### File Logging Examples
 
-To enable file logging with the default settings, create an empty dictionary:
+To enable file logging with the default settings, create an array with only the `log_type` set:
 
 ```yaml
 ---
 
 # Example of enabling file logging with default settings
 logging:
-  file: {}
+
+  # The default file logger that will log to /tmp/exacheck.log
+  - log_type: file
 ```
 
 To change the logging level and use structured logging:
@@ -77,37 +139,40 @@ To change the logging level and use structured logging:
 ```yaml
 ---
 
-# Example of enabling structured file logging at the DEBUG log level
+# Example of enabling structured file logging at the debug log level
 logging:
-  file:
-    level: DEBUG
+
+  - log_typ: file
+    level: debug
     structured: true
 ```
 
 ## Syslog Configuration
 
-Syslog can be used to send logs to a local syslog daemon or a remote syslog host. By default, syslogs will be written to the local socket `/dev/log`.
+To enable logging to a syslog server, set `log_type` key to `syslog`. The following options are available for syslog:
 
-The `syslog` dictionary has the following keys available:
-
-|      Key      |               Type               |  Default   |                               Description                               |
-| ------------- | -------------------------------- | ---------- | ----------------------------------------------------------------------- |
-| `destination` | `/dev/log`, hostname, IP address | `/dev/log` | The location to send logs to.                                           |
-| `formatter`   | String                           | `None`     | The [custom log format](#custom-log-format) to use.                     |
-| `level`       | String                           | `INFO`     | The [log level](#log-levels) for the logger.                            |
-| `port`        | Integer                          | `514`      | When logging to a hostname or IP address, the port to send the logs to. |
-| `structured`  | Bool                             | `True`     | Output logs in the [structured logging format](#structured-logging).    |
+|      Key      |               Type               |                               Default                                |                               Description                               |
+| ------------- | -------------------------------- | -------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `destination` | `/dev/log`, hostname, IP address | `/dev/log`                                                           | The location to send logs to.                                           |
+| `events`      | Array(String)                    | `[ announce, withdraw, error, log, debug ]`                          | The events that should be logged to the syslog server.                  |
+| `formatter`   | String                           | `None`                                                               | The [custom log format](#custom-log-format) to use.                     |
+| `level`       | String                           | `INFO`                                                               | The [log level](#log-levels) for the logger.                            |
+| `port`        | Integer                          | `514`                                                                | When logging to a hostname or IP address, the port to send the logs to. |
+| `structured`  | Bool                             | `True`                                                               | Output logs in the [structured logging format](#structured-logging).    |
+| `subsystems`  | Array(String)                    | `[ healthcheck, worker, master, configuration, utility, announcer ]` | The subsystems that can log to the syslog server.                       |
 
 ### Syslog Examples
 
-To enable syslog with the default settings, create an empty dictionary:
+To enable file logging with the default settings, create an array with only the `log_type` set:
 
 ```yaml
 ---
 
 # Example of enabling syslog with default settings
 logging:
-  syslog: {}
+
+  # The default logger that will log to /dev/log (syslog local socket)
+  - log_type: syslog
 ```
 
 To send logs to the IP address `192.0.2.1` on port `514` instead of the local syslog daemon:
@@ -117,18 +182,25 @@ To send logs to the IP address `192.0.2.1` on port `514` instead of the local sy
 
 # Example of enabling syslog with default settings
 logging:
-  syslog:
+
+  - log_type: syslog
     destination: 192.0.2.1
     port: 514
 ```
 
 ## Custom Log Format
 
-If you prefer to configure your own log format for messages, pass the `formatter` key to the `file` or `syslog` configuration dict. [Loguru][Loguru] is used for logging; the [Loguru API page][Loguru API Page] provides some details on what fields are available and examples of some formats.
+If you prefer to configure your own log format for messages, pass the `formatter` key to the configuration dictionary. [Loguru][Loguru] is used for logging; the [Loguru API page][Loguru API Page] provides some details on what fields are available and examples of some formats.
 
-To aid in debugging, the `extra[process_name]` variable is always defined which contains the name of the process sending the log. The process name is set to the name of the health check or master for the monitoring process.
+All logs include the following extra fields:
 
-As an example, a file based logger with the default format looks like this:
+- `check_name`
+- `event`
+- `subsystem`
+
+To reference the extra fields in your formatter use `{extra[extra_name]}` (eg. `{extra[event]}` for the event type).
+
+As an example to log to the file `/tmp/exacheck.log` with a default logging format:
 
 ```yaml
 ---
@@ -136,7 +208,7 @@ As an example, a file based logger with the default format looks like this:
 # Default log format at the INFO log level for file logs
 logging:
   file:
-    formatter: "{time:YYYY-MM-DD HH:mm:ss.SSS} | {level: <8} | [{process}] {extra[process_name]} | {file}:{line} | {message}"
+    formatter: "{time:YYYY-MM-DD HH:mm:ss.SSS} | {level: <8} | {process} | {extra[check_name]} | {file.path}:{line} | {function} | {extra[event]} | {extra[subsystem]} | {message}"
 ```
 
 [lnav]: https://lnav.org/
