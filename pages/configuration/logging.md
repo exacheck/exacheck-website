@@ -31,12 +31,12 @@ Logging settings are stored in a key named `logging` in the configuration file. 
 logging:
 
   # Create log file for announce and withdraw events
-  - log_type: file
+  - log: file
     file: /var/log/exacheck/announcement.log
     events: [ announce, withdraw ]
 
   # Create log file for health check related information at the info level
-  - log_type: file
+  - log: file
     file: /var/log/exacheck/healthcheck.log
     subsystems: [ healthcheck ]
 ```
@@ -60,7 +60,7 @@ The filters may be combined together; as an example:
 logging:
 
   # Create a log file to dump raw results of health checks
-  - log_type: file
+  - log: file
     file: /var/log/exacheck/healthcheck_raw.log
     events: [ datadump ]
     subsystems: [ healthcheck ]
@@ -106,7 +106,7 @@ Structured logging can be used to allow easy parsing of logs with tools such as 
 
 ## File Logging Configuration
 
-To enable logging to a file set the `log_type` key to `file`. The following options are available for file logging:
+To enable logging to a file set the `log` key to `file`. The following options are available for file logging:
 
 |     Key      |     Type      |                               Default                                |                             Description                              |
 | ------------ | ------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
@@ -122,7 +122,7 @@ To enable logging to a file set the `log_type` key to `file`. The following opti
 
 ### File Logging Examples
 
-To enable file logging with the default settings, create an array with only the `log_type` set:
+To enable file logging with the default settings, create an array with only the `log` set:
 
 ```yaml
 ---
@@ -131,7 +131,7 @@ To enable file logging with the default settings, create an array with only the 
 logging:
 
   # The default file logger that will log to /tmp/exacheck.log
-  - log_type: file
+  - log: file
 ```
 
 To change the logging level and use structured logging:
@@ -142,14 +142,14 @@ To change the logging level and use structured logging:
 # Example of enabling structured file logging at the debug log level
 logging:
 
-  - log_typ: file
+  - log: file
     level: debug
     structured: true
 ```
 
 ## Syslog Configuration
 
-To enable logging to a syslog server, set `log_type` key to `syslog`. The following options are available for syslog:
+To enable logging to a syslog server, set `log` key to `syslog`. The following options are available for syslog:
 
 |      Key      |               Type               |                               Default                                |                               Description                               |
 | ------------- | -------------------------------- | -------------------------------------------------------------------- | ----------------------------------------------------------------------- |
@@ -163,7 +163,7 @@ To enable logging to a syslog server, set `log_type` key to `syslog`. The follow
 
 ### Syslog Examples
 
-To enable file logging with the default settings, create an array with only the `log_type` set:
+To enable file logging with the default settings, create an array with only the `log` set:
 
 ```yaml
 ---
@@ -172,7 +172,7 @@ To enable file logging with the default settings, create an array with only the 
 logging:
 
   # The default logger that will log to /dev/log (syslog local socket)
-  - log_type: syslog
+  - log: syslog
 ```
 
 To send logs to the IP address `192.0.2.1` on port `514` instead of the local syslog daemon:
@@ -183,7 +183,7 @@ To send logs to the IP address `192.0.2.1` on port `514` instead of the local sy
 # Example of enabling syslog with default settings
 logging:
 
-  - log_type: syslog
+  - log: syslog
     destination: 192.0.2.1
     port: 514
 ```
