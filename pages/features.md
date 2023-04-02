@@ -45,9 +45,9 @@ The configuration can have [optional live reloads][ExaCheck Configuration - Live
 
 ## Logging
 
-[Loguru][Loguru] is used for logging. By default, logs are output to STDOUT only. Extensive debugging/trace logging is available to help troubleshoot potential problems; log levels can be configured per-log destination.
+[Loguru][Loguru] is used for logging. By default, logs are output to STDOUT only. Extensive debugging/trace logging is available to help troubleshoot potential problems; log levels, filters and formatting can be configured per-log destination.
 
-Optionally, ExaCheck can be configured to log to a file or to syslog (remote syslog servers supported). If using file based logging, the rotation/compression of the log files is managed by ExaCheck for you.
+ExaCheck can be configured to log to one or more files or syslog destinations (remote syslog servers supported). If using file based logging, the rotation/compression of the log files is managed by ExaCheck for you.
 
 For configuration examples and further information see the [logging configuration page][ExaCheck Configuration - Logging].
 
