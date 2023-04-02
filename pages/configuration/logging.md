@@ -86,17 +86,18 @@ The default value is `[ announce, debug, error, log, withdraw ]`.
 
 The following log subsystems are available:
 
-| Subsystem Name  |                     Description                     |
-| --------------- | --------------------------------------------------- |
-| `announcer`     | The route announcer.                                |
-| `configuration` | The configuration manager.                          |
-| `healthcheck`   | The health check itself.                            |
-| `logging`       | The logging manager.                                |
-| `master`        | The master process.                                 |
-| `utility`       | Various utilities such as the process name manager. |
-| `worker`        | The worker that triggers health checks.             |
+| Subsystem Name  |                                       Description                                       |
+| --------------- | --------------------------------------------------------------------------------------- |
+| `announcer`     | The route announcer.                                                                    |
+| `configuration` | The configuration manager.                                                              |
+| `executor`      | The check executor.                                                                     |
+| `healthcheck`   | The health check itself.                                                                |
+| `logging`       | The logging manager.                                                                    |
+| `master`        | The master process.                                                                     |
+| `utility`       | Various utilities such as the process name manager.                                     |
+| `worker`        | The worker for a health check which calls the executor and manages route announcements. |
 
-The default value is: `[ announcer, configuration, healthcheck, logging, master, utility, worker ]`.
+The default value is: `[ announcer, configuration, executor, healthcheck, logging, master, utility, worker ]`.
 
 ### Log Levels
 
@@ -129,18 +130,18 @@ Structured logging can be used to allow easy parsing of logs with tools such as 
 
 To enable logging to a file set the `log` key to `file`. The following options are available for file logging:
 
-|     Key      |      Type      |                                    Default                                    |                             Description                              |
-| ------------ | -------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `checks`     | List\[String\] | `None`                                                                        | The list of health check names to log.                               |
-| `compress`   | Bool           | `True`                                                                        | Compress rotated log files.                                          |
-| `count`      | Integer        | `5`                                                                           | The number of log files to keep after rotation.                      |
-| `events`     | List\[String\] | `[ announce, debug, error, log, withdraw ]`                                   | The events that should be logged to the file.                        |
-| `file`       | String (Path)  | `/tmp/exacheck.log`                                                           | The file to log to. Must be writable by ExaCheck.                    |
-| `formatter`  | String         | `None`                                                                        | The [custom log format](#custom-log-format) to use.                  |
-| `level`      | String         | `info`                                                                        | The [log level](#log-levels) for the logger.                         |
-| `size`       | String (Size)  | `10MB`                                                                        | The maximum log file size before it is rotated.                      |
-| `structured` | Bool           | `False`                                                                       | Output logs in the [structured logging format](#structured-logging). |
-| `subsystems` | List\[String\] | `[ announcer, configuration, healthcheck, logging, master, utility, worker ]` | The subsystems that can log to the file.                             |
+|     Key      |      Type      |                                         Default                                         |                             Description                              |
+| ------------ | -------------- | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `checks`     | List\[String\] | `None`                                                                                  | The list of health check names to log.                               |
+| `compress`   | Bool           | `True`                                                                                  | Compress rotated log files.                                          |
+| `count`      | Integer        | `5`                                                                                     | The number of log files to keep after rotation.                      |
+| `events`     | List\[String\] | `[ announce, debug, error, log, withdraw ]`                                             | The events that should be logged to the file.                        |
+| `file`       | String (Path)  | `/tmp/exacheck.log`                                                                     | The file to log to. Must be writable by ExaCheck.                    |
+| `formatter`  | String         | `None`                                                                                  | The [custom log format](#custom-log-format) to use.                  |
+| `level`      | String         | `info`                                                                                  | The [log level](#log-levels) for the logger.                         |
+| `size`       | String (Size)  | `10MB`                                                                                  | The maximum log file size before it is rotated.                      |
+| `structured` | Bool           | `False`                                                                                 | Output logs in the [structured logging format](#structured-logging). |
+| `subsystems` | List\[String\] | `[ announcer, configuration, executor, healthcheck, logging, master, utility, worker ]` | The subsystems that can log to the file.                             |
 
 ### File Logging Examples
 
@@ -173,16 +174,16 @@ logging:
 
 To enable logging to a syslog server, set `log` key to `syslog`. The following options are available for syslog:
 
-|      Key      |               Type               |                                    Default                                    |                               Description                               |
-| ------------- | -------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `checks`      | List\[String\]                   | `None`                                                                        | The list of health check names to log.                                  |
-| `destination` | `/dev/log`, hostname, IP address | `/dev/log`                                                                    | The location to send logs to.                                           |
-| `events`      | List\[String\]                   | `[ announce, debug, error, log, withdraw ]`                                   | The events that should be logged to the syslog server.                  |
-| `formatter`   | String                           | `None`                                                                        | The [custom log format](#custom-log-format) to use.                     |
-| `level`       | String                           | `INFO`                                                                        | The [log level](#log-levels) for the logger.                            |
-| `port`        | Integer                          | `514`                                                                         | When logging to a hostname or IP address, the port to send the logs to. |
-| `structured`  | Bool                             | `True`                                                                        | Output logs in the [structured logging format](#structured-logging).    |
-| `subsystems`  | List\[String\]                   | `[ announcer, configuration, healthcheck, logging, master, utility, worker ]` | The subsystems that can log to the syslog server.                       |
+|      Key      |               Type               |                                         Default                                         |                               Description                               |
+| ------------- | -------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `checks`      | List\[String\]                   | `None`                                                                                  | The list of health check names to log.                                  |
+| `destination` | `/dev/log`, hostname, IP address | `/dev/log`                                                                              | The location to send logs to.                                           |
+| `events`      | List\[String\]                   | `[ announce, debug, error, log, withdraw ]`                                             | The events that should be logged to the syslog server.                  |
+| `formatter`   | String                           | `None`                                                                                  | The [custom log format](#custom-log-format) to use.                     |
+| `level`       | String                           | `INFO`                                                                                  | The [log level](#log-levels) for the logger.                            |
+| `port`        | Integer                          | `514`                                                                                   | When logging to a hostname or IP address, the port to send the logs to. |
+| `structured`  | Bool                             | `True`                                                                                  | Output logs in the [structured logging format](#structured-logging).    |
+| `subsystems`  | List\[String\]                   | `[ announcer, configuration, executor, healthcheck, logging, master, utility, worker ]` | The subsystems that can log to the syslog server.                       |
 
 ### Syslog Examples
 
