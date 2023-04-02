@@ -45,10 +45,10 @@ The following arguments are available for the DNS health check
 | `address_family`  | `ipv4`, `ipv6`                     | `None`  | Force the DNS query to a specific address family.[^1]                                         |
 | `dns_timeout`     | Integer, Float                     | `5`     | The timeout for the DNS response from the DNS server.[^2]                                     |
 | `port`            | Integer                            | `53`    | The port to send the DNS request to.                                                          |
-| `protocol`        | `udp`, `tcp`                       | `udp`   | The protocol to use for the DNS query.                                                        |
 | `query_type`      | [DNS query type](#dns-query-types) | `soa`   | The type of query to send.                                                                    |
 | `require_resolve` | Bool                               | `True`  | Require the DNS response to return a valid answer (not a NXDOMAIN or other failure response). |
 | `response`        | Pattern                            | `None`  | A regex to search for in the response.                                                        |
+| `tcp`             | Bool                               | `false` | Set to true to use TCP instead of UDP for the DNS query.                                      |
 
 ### DNS Query Types
 
