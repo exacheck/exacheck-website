@@ -10,6 +10,10 @@ These are some example configurations for ExaBGP + ExaCheck. The health check co
 
 [ExaBGP][ExaBGP GitHub] needs to be configured to execute ExaCheck. By default the ExaBGP configuration is located in `/etc/exabgp/exabgp.conf`.
 
+!!! warning
+
+    ExaBGP must be configured with the environment variable `exabgp.api.ack` set to `false`. If deploying using the Docker container this is already handled for you. A future release of ExaCheck will resolve this.
+
 These configurations can be used as a template:
 
 === "Single Neighbor"
@@ -35,7 +39,7 @@ These configurations can be used as a template:
 
         # The local and peer AS numbers
         local-as 65515;
-        remote-as 65515;
+        peer-as 65515;
 
         # The address family to advertise
         family {
@@ -70,7 +74,7 @@ These configurations can be used as a template:
 
         # The local and peer AS numbers
         local-as 65515;
-        remote-as 65515;
+        peer-as 65515;
 
         # The address family to advertise
         family {
@@ -117,7 +121,7 @@ These configurations can be used as a template:
 
         # The local and peer AS numbers
         local-as 65515;
-        remote-as 65515;
+        peer-as 65515;
 
         # The address family to advertise
         family {
@@ -140,7 +144,7 @@ These configurations can be used as a template:
 
         # The local and peer AS numbers
         local-as 65515;
-        remote-as 65515;
+        peer-as 65515;
 
         # The address family to advertise
         family {
@@ -176,6 +180,7 @@ These are some example ExaCheck configuration files with various features used. 
 
     ```yaml
     ---
+
     # The list of health checks to perform
     checks:
 
@@ -221,5 +226,4 @@ These are some example ExaCheck configuration files with various features used. 
     --8<--
     ```
 
-[ExaCheck Configuration - Health Checks]: ../configuration/health-checks/index.md
 [ExaBGP GitHub]: https://github.com/Exa-Networks/exabgp
