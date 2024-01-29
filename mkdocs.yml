@@ -2,6 +2,7 @@
 site_name: ExaCheck - BGP Health Checker
 repo_url: https://github.com/exacheck/exacheck
 repo_name: exacheck/exacheck
+copyright: Copyright &copy; 2024 ExaCheck. ExaCheck is not associated with or endorsed by <a href="https://github.com/Exa-Networks/exabgp">ExaBGP</a> or <a href="https://exa.net.uk/">Exa Networks</a>.
 
 theme:
   name: material
@@ -99,3 +100,10 @@ extra:
   analytics:
     provider: google
     property: G-LZT47G0118
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/exacheck
+      name: ExaCheck GitHub
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/r/exacheck/exacheck
+      name: ExaCheck Docker Hub
