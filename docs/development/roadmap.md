@@ -12,6 +12,7 @@ As I need them I plan to add additional health check methods. Unless there is a 
 
 ### General Features
 
+- [x] Python 3.11 support: This is the commonly available Python release for modern distributions.
 - [ ] Complete test files: Currently there is only a basic test for loading the configuration.
 - [ ] Logging for when ExaCheck is shut down. Due to a race condition Loguru is not able to log inside a signal handler.
 - [ ] Make the `metric_down` feature work. If set, routes should be announced when the service is down but have the configured metric attribute set.
