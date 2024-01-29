@@ -12,7 +12,7 @@ ExaCheck is primarily targeted to centralized health checks where one or more se
 - [Notifications](#notifications) for announce/withdraw events and other information
 - Configuration validation (if using live configuration reloads, configuration is validated before application)
 - Out of the box sane defaults where possible
-- JSON schema of configuration (see [configuration.json][ExaCheck Configuration Schema] for the current schema)
+- JSON schema of configuration (see [schema.json][ExaCheck Configuration Schema] for the current schema)
 - [Docker deployment supported][ExaCheck Docker Deployment]
 - Full IPv4 and IPv6 support
 - [Choice of YAML or JSON configuration](#configuration-format)
@@ -59,7 +59,7 @@ ExaCheck Master Process [/code/configuration.yaml]: Sleeping
 [ExaCheck Examples]: ../deployment/examples.md
 [ExaCheck Configuration - Live Reload]: ../configuration/live-reload.md
 [ExaCheck Configuration - Notifications]: ../configuration/notifications.md
-[ExaCheck Configuration Schema]: https://raw.githubusercontent.com/exacheck/exacheck/main/schema.json
+[ExaCheck Configuration Schema]: https://github.com/exacheck/exacheck/blob/main/schema.json
 [ExaCheck Docker Deployment]: ../deployment/docker.md
 [Apprise - GitHub]: https://github.com/caronc/apprise
 [Apprise - Wiki]: https://github.com/caronc/apprise/wiki
