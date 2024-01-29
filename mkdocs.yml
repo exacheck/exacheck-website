@@ -42,8 +42,21 @@ theme:
         icon: material/brightness-4
         name: Light Mode
 
-watch:
-  - includes
+extra:
+  generator: false
+  analytics:
+    provider: google
+    property: G-LZT47G0118
+  social:
+    - icon: material/email
+      link: mailto:exacheck@exacheck.net
+      name: Email
+    - icon: fontawesome/brands/github
+      link: https://github.com/exacheck
+      name: ExaCheck GitHub
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/r/exacheck/exacheck
+      name: ExaCheck Docker Hub
 
 plugins:
   - glightbox
@@ -95,15 +108,5 @@ markdown_extensions:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
-extra:
-  generator: false
-  analytics:
-    provider: google
-    property: G-LZT47G0118
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/exacheck
-      name: ExaCheck GitHub
-    - icon: fontawesome/brands/docker
-      link: https://hub.docker.com/r/exacheck/exacheck
-      name: ExaCheck Docker Hub
+watch:
+  - includes
