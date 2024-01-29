@@ -103,11 +103,11 @@ If using VS Code with the [YAML Language Server][YAML Language Server] the follo
 
 ```yaml
 ---
-# yaml-language-server: $schema=https://github.com/exacheck/exacheck/blob/main/configuration.json
+# yaml-language-server: $schema=https://raw.githubusercontent.com/exacheck/exacheck/main/schema.json
 ```
 
 [ExaCheck CLI - Configuration Schema]: ../features/cli.md#configuration-schema
-[ExaCheck Configuration Schema]: https://github.com/exacheck/exacheck/blob/main/configuration.json
+[ExaCheck Configuration Schema]: https://raw.githubusercontent.com/exacheck/exacheck/main/schema.json
 [ExaCheck Configuration - Live Reload]: live-reload.md
 [ExaCheck Configuration - Logging]: logging/index.md
 [ExaCheck Configuration - Notifications]: notifications.md

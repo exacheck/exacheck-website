@@ -59,7 +59,7 @@ ExaCheck Master Process [/code/configuration.yaml]: Sleeping
 [ExaCheck Examples]: ../deployment/examples.md
 [ExaCheck Configuration - Live Reload]: ../configuration/live-reload.md
 [ExaCheck Configuration - Notifications]: ../configuration/notifications.md
-[ExaCheck Configuration Schema]: https://github.com/exacheck/exacheck/blob/main/configuration.json
+[ExaCheck Configuration Schema]: https://raw.githubusercontent.com/exacheck/exacheck/main/schema.json
 [ExaCheck Docker Deployment]: ../deployment/docker.md
 [Apprise - GitHub]: https://github.com/caronc/apprise
 [Apprise - Wiki]: https://github.com/caronc/apprise/wiki
