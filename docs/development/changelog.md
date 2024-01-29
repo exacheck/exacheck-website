@@ -4,6 +4,10 @@ icon: simple/keepachangelog
 
 # Changelog
 
-## 2024-01-29 - Initial Release
+The following changelog is available via the [ExaCheck GitHub repository CHANGELOG file][Exacheck GitHub CHANGELOG].
 
-First release :material-party-popper:
+--8<--
+https://raw.githubusercontent.com/exacheck/exacheck/master/CHANGELOG.md
+--8<--
+
+[Exacheck GitHub CHANGELOG]: https://raw.githubusercontent.com/exacheck/exacheck/main/CHANGELOG.md
