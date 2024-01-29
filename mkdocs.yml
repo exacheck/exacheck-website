@@ -79,6 +79,7 @@ markdown_extensions:
       base_path:
         - includes
       check_paths: true
+      url_download: true
 
   - pymdownx.superfences:
       custom_fences:
