@@ -4,7 +4,7 @@ icon: material/language-python
 
 # Python
 
-ExaCheck requires a recent version of Python; **Python 3.11 or higher is required**. For best results Python 3.12 is recommended. If you try to run ExaCheck on an earlier release of Python it will not work.
+ExaCheck requires a recent version of Python; **Python 3.11 is required**. If you try to run ExaCheck on an earlier release of Python it will not work. ExaBGP appears to have problems with Python 3.12; this page will be revised once a solution has been found.
 
 ## PyPI Package
 
