@@ -102,3 +102,18 @@ Some examples of DNS health checks:
     examples/checks/dns/cname-check.md
     --8<--
     ```
+
+=== "IP Regex"
+
+    To send a `A` query to a name server and validate the returned IP address with a regex:
+
+    ```yaml
+    ---
+
+    # The list of health checks
+    checks:
+
+    --8<--
+    examples/checks/dns/ip-regex.md
+    --8<--
+    ```
