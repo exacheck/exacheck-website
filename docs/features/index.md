@@ -57,7 +57,7 @@ ExaCheck Master Process [/code/configuration.yaml]: Sleeping
 [ExaCheck Feature - CLI]: cli.md
 [ExaCheck Configuration]: ../configuration/index.md
 [ExaCheck Examples]: ../deployment/examples.md
-[ExaCheck Configuration - Live Reload]: ../configuration/live-reload.md
+[ExaCheck Configuration - Live Reload]: ../configuration/exacheck.md#live-reload
 [ExaCheck Configuration - Notifications]: ../configuration/notifications.md
 [ExaCheck Configuration Schema]: https://github.com/exacheck/exacheck/blob/main/schema.json
 [ExaCheck Docker Deployment]: ../deployment/docker.md

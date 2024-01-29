@@ -34,12 +34,17 @@ The following top level configuration keys are available:
 
 | Key                                           | Type                           | Default |
 | --------------------------------------------- | ------------------------------ | ------- |
+| [`exacheck`](#exacheck)                       | Dict                           | *undef* |
 | [`checks`](#checks)                           | List[Check]                    | *undef* |
 | [`logging`](#logging)                         | *Optional* List[LogMethods]    | *undef* |
 | [`notifications`](#notifications)             | *Optional* List[Notifications] | *undef* |
 | [`sentry`](#sentry)                           | *Optional* Dict                | *undef* |
-| [`live_reload`](#live-reload)                 | Bool                           | `False` |
-| [`monitoring_interval`](#monitoring-interval) | Float/Int                      | `30`    |
+
+### ExaCheck
+
+The `exacheck` key contains the various internal configuration for ExaCheck. Configuration to enable/disable live reloading and the monitoring interval can be adjusted using this key.
+
+For the list of available configuration options sett the [ExaCheck internal configuration page][ExaCheck Configuration - Internal].
 
 ### Checks
 
@@ -56,34 +61,6 @@ The `notifications` key contains a list of notification targets. See the [notifi
 ### Sentry
 
 Sentry error reporting/profiling can be configured with the `sentry` key. See the [Sentry configuration page][ExaCheck Configuration - Sentry].
-
-### Live Reload
-
-Live configuration reloads may be enabled by setting `live_reload` to `True`. See the [live configuration reload page][ExaCheck Configuration - Live Reload].
-
-### Monitoring Interval
-
-The `monitoring_interval` option controls how often the master process checks for configuration modifications (if enabled) and that each health check process is running. If a health check process is terminated for some reason (eg. an unhandled exception) the master process will automatically respawn it at the next monitoring interval.
-
-The default value of `30` should be fine for most use cases. Note that this value is NOT how often a health check is executed; that is controlled at the health check level.
-
-#### Monitoring Interval Example
-
-To change the monitoring interval from the default 30 seconds to 60 seconds:
-
-```yaml
----
-
-# Enable live configuration reloads
-live_reload: true
-
-# Monitor for configuration changes and verify the health check processes are running every 60 seconds
-monitoring_interval: 60
-
---8<--
-examples/check_footer.md
---8<--
-```
 
 ## Validation
 
@@ -108,11 +85,11 @@ If using VS Code with the [YAML Language Server][YAML Language Server] the follo
 
 [ExaCheck CLI - Configuration Schema]: ../features/cli.md#configuration-schema
 [ExaCheck Configuration Schema]: https://github.com/exacheck/exacheck/blob/main/schema.json
-[ExaCheck Configuration - Live Reload]: live-reload.md
 [ExaCheck Configuration - Logging]: logging/index.md
 [ExaCheck Configuration - Notifications]: notifications.md
 [ExaCheck Configuration - Health Checks]: health-checks/index.md
 [ExaCheck Configuration - Sentry]: sentry.md
+[ExaCheck Configuration - Internal]: exacheck.md
 [Pydantic Homepage]: https://docs.pydantic.dev/latest/
 [YAML Language Server]: https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml
 [JSON Crack Editor]: https://jsoncrack.com/editor
