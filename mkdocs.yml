@@ -1,9 +1,11 @@
 ---
 site_name: ExaCheck - BGP Health Checker
+site_url: https://exacheck.net/
 repo_url: https://github.com/exacheck/exacheck
 repo_name: exacheck/exacheck
 copyright: Copyright &copy; 2024 ExaCheck. ExaCheck is not associated with or endorsed by <a href="https://github.com/Exa-Networks/exabgp">ExaBGP</a> or <a href="https://exa.net.uk/">Exa Networks</a>.
 edit_uri: https://github.com/exacheck/exacheck-website/edit/main/docs/
+
 
 theme:
   name: material
