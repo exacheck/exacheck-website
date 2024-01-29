@@ -1,0 +1,3 @@
+# Skip example files as they are snippets that are inserted in the middle of code blocks
+includes/examples/**
+includes/snippets/**

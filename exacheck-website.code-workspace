@@ -1,0 +1,53 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"[markdown]": {
+			"editor.defaultFormatter": "yzhang.markdown-all-in-one"
+		},
+		"yaml.schemas": {
+			"https://squidfunk.github.io/mkdocs-material/schema.json": "mkdocs.yml"
+		},
+		"yaml.customTags": [
+			"!ENV scalar",
+			"!ENV sequence",
+			"tag:yaml.org,2002:python/name:materialx.emoji.to_svg",
+			"tag:yaml.org,2002:python/name:materialx.emoji.twemoji",
+			"tag:yaml.org,2002:python/name:pymdownx.superfences.fence_code_format"
+		],
+		"cSpell.language": "en-GB",
+		"cSpell.words": [
+			"color",
+			"conda",
+			"datadump",
+			"dnspython",
+			"ECMP",
+			"exabgp",
+			"exacheck",
+			"Formatter",
+			"healthcheck",
+			"hostnames",
+			"httpx",
+			"icmplib",
+			"lnav",
+			"Loguru",
+			"mkdocs",
+			"multipath",
+			"neighbor",
+			"nexthop",
+			"ntplib",
+			"NXDOMAIN",
+			"Pydantic",
+			"Pylint",
+			"pyproject",
+			"pyrad",
+			"respawn",
+			"setproctitle",
+			"syslogs"
+		],
+		"terminal.integrated.scrollback": 50000
+	}
+}

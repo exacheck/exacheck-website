@@ -1,0 +1,1 @@
+"date"="2024-01-21" "time"="14:05:05.949" "level"="INFO" "pid"="280406" "check_name"="TCP test to Google port 80" "file"="/code/exacheck/worker.py" "line"="201" "function"="success" "event"="info" "subsystem"="worker" "message"="Health check successful but service has not risen yet"

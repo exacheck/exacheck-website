@@ -1,0 +1,9 @@
+  - name: Example Basic HTTP Check
+    description: Perform a HTTP request to the web server and verify a successful response code is received
+    args:
+      method: http
+      host: 127.0.0.1
+      url: https://example.com
+    prefixes:
+      - 192.0.2.255
+    nexthop: self
