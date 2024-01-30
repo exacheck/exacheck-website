@@ -18,6 +18,30 @@ All requirements will be installed automatically.
 
 After installation you may configure ExaCheck using one of the [example configuration files][ExaCheck Examples] as a template.
 
+### venv
+
+To install ExaCheck and ExaBGP in a Python virtual environment (in this example using `/opt/exacheck` as the root of the venv), follow the below steps:
+
+1. Create the virtual environment:
+
+```bash
+python3 -m venv /opt/exacheck
+```
+
+2. Optionally, activate the environment:
+
+```bash
+source /opt/exacheck/bin/activate
+```
+
+3. Install the ExaCheck package:
+
+```bash
+/opt/exacheck/bin/python3 -m pip install exacheck
+```
+
+ExaCheck and ExaBGP are now ready to use.
+
 ## Python Modules
 
 Various Python modules are required to use ExaCheck. The current requirements and their versions can be found in the [pyproject.toml file][ExaCheck PyProject].

@@ -46,7 +46,8 @@
 			"pyrad",
 			"respawn",
 			"setproctitle",
-			"syslogs"
+			"syslogs",
+			"venv"
 		],
 		"terminal.integrated.scrollback": 50000
 	}
