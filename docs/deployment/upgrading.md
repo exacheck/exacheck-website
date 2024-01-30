@@ -4,7 +4,7 @@ icon: octicons/tracked-by-closed-completed-16
 
 # Upgrading
 
-As this is currently in alpha, there are no upgrade notes available yet. If there are any breaking changes in future they will be listed here.
+Upgrading ExaCheck depends on the initial installation method.
 
 ## Upgrade Process
 
@@ -20,3 +20,11 @@ If using the Docker image and the tag is set to `latest` (the default in the sam
 docker compose pull
 docker compose start
 ```
+
+## Upgrade Notes
+
+### 0.0.6
+
+When upgrading to `0.0.5`, the `monitoring_interval` and `live_reload` options have been migrated under the [`exacheck`][ExaCheck Configuration - Internal] configuration key.
+
+[ExaCheck Configuration - Internal]: ../configuration/exacheck.md
