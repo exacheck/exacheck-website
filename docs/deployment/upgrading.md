@@ -11,7 +11,7 @@ Upgrading ExaCheck depends on the initial installation method.
 If ExaCheck has been installed from PyPI using `pip`, the package can be upgraded with the following command:
 
 ```bash
-python3 -m pip exacheck --upgrade
+python3 -m pip install exacheck --upgrade
 ```
 
 If using the Docker image and the tag is set to `latest` (the default in the sample), simply pull and start:
