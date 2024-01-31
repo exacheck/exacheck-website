@@ -42,6 +42,89 @@ source /opt/exacheck/bin/activate
 
 ExaCheck and ExaBGP are now ready to use.
 
+## ExaBGP Setup Notes
+
+If using PyPI to install ExaBGP a few extra steps should be performed.
+
+### ExaBGP User
+
+A user account should be added for ExaBGP so it does not run as root. To add the account:
+
+```bash
+useradd -Ms /usr/sbin/nologin -d /run/exabgp exabgp
+```
+
+### ExaBGP Service File
+
+The pip install method of ExaBGP does not include a systemd service file. Create the file `/etc/systemd/system/exabgp.service` with this content:
+
+```ini
+[Unit]
+Description=ExaBGP
+Documentation=man:exabgp(1)
+Documentation=man:exabgp.conf(5)
+Documentation=https://github.com/Exa-Networks/exabgp/wiki
+After=network.target
+ConditionPathExists=/etc/exabgp/exabgp.conf
+
+[Service]
+Environment=exabgp_daemon_daemonize=false
+User=exabgp
+Group=exabgp
+RuntimeDirectory=exabgp
+RuntimeDirectoryMode=0750
+ExecStartPre=-/usr/bin/mkfifo /run/exabgp/exabgp.in
+ExecStartPre=-/usr/bin/mkfifo /run/exabgp/exabgp.out
+ExecStart=/opt/exacheck/bin/exabgp /etc/exabgp/exabgp.conf
+ExecReload=/bin/kill -USR1 $MAINPID
+Restart=always
+CapabilityBoundingSet=CAP_NET_ADMIN
+AmbientCapabilities=CAP_NET_ADMIN
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Once the service file is created the service can be enabled to start on boot:
+
+```bash
+systemctl enable exabgp.service
+```
+
+### ExaBGP Configuration
+
+Create the ExaBGP and ExaCheck configuration files. By default they will be sourced from `/etc/exabgp`. The directory will need to be created:
+
+```bash
+mkdir /etc/exabgp
+```
+
+Create the default ExaBGP environment file:
+
+```bash
+/opt/exacheck/bin/exabgp --fi > /etc/exabgp/exabgp.env
+```
+
+The following configuration options need to be changed in the environment file:
+
+- API `ack` set to `false`
+- ExaBGP user changed from `nobody` to `exabgp`
+
+A sed one liner to change the required values can be executed:
+
+```bash
+sed -i \
+    -e "s:ack = true:ack = false:" \
+    -e "s:user = 'nobody':user = 'exabgp':" \
+    /etc/exabgp/exabgp.env
+```
+
+Once ExaBGP and ExaCheck has been configured (see the [configuration examples page][ExaCheck Examples]) the ExaBGP service can be started:
+
+```bash
+systemctl start exabgp.service
+```
+
 ## Python Modules
 
 Various Python modules are required to use ExaCheck. The current requirements and their versions can be found in the [pyproject.toml file][ExaCheck PyProject].
