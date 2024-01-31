@@ -91,6 +91,30 @@ Once the service file is created the service can be enabled to start on boot:
 systemctl enable exabgp.service
 ```
 
+### Logging
+
+If enabling logging to the path `/var/log/exacheck`, create the directory and set permissions:
+
+```bash
+mkdir /var/log/exacheck
+chown exacheck:exacheck /var/log/exacheck
+```
+
+A logging configuration in `exacheck.yaml` would look like:
+
+```yaml
+---
+
+# Logging configuration
+logging:
+  - method: file
+    destination: /var/log/exacheck/exacheck.log
+
+--8<--
+examples/check_footer.md
+--8<--
+```
+
 ### ExaBGP Configuration
 
 Create the ExaBGP and ExaCheck configuration files. By default they will be sourced from `/etc/exabgp`. The directory will need to be created:
