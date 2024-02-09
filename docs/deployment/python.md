@@ -12,19 +12,21 @@ While not required, it is recommended that ExaCheck is installed in a Python vir
 
 === "Ubuntu/Debian"
 
-  ```bash
-  apt install python3-venv
-  ```
+    ```bash
+    apt install python3-venv
+    ```
 
 === "Alma/CentOS/RedHat"
 
-  Depending on the release, the venv module may already be installed. If not, install the `python3-virtualenv` package:
+    Depending on the release, the venv module may already be installed. If not, install the `python3-virtualenv` package:
 
-  ```bash
-  yum install python3-virtualenv
-  ```
+    ```bash
+    yum install python3-virtualenv
+    ```
 
-The virtual environment can then be created. To create the environment in `/opt/exacheck`:
+### venv Creation
+
+To create the virtual environment in `/opt/exacheck`:
 
 ```bash
 python3 -m venv /opt/exacheck
