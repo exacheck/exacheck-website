@@ -1,5 +1,6 @@
 ---
 icon: material/microsoft-visual-studio-code
+description: Instructions for using the included Visual Studio Code development environment in a Docker container.
 ---
 
 # Development Environment

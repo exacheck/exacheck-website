@@ -1,9 +1,9 @@
 ---
-description: ExaCheck - Health check services and advertise BGP routes using ExaBGP.
+icon: material/home
+description: ExaCheck is a Python based application which works in conjunction with ExaBGP to advertise BGP routes based on the status of health checks.
 hide:
     - navigation
     - toc
-icon: material/home
 ---
 
 # Home

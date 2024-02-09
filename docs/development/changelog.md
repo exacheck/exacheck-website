@@ -1,5 +1,6 @@
 ---
 icon: simple/keepachangelog
+description: The changelog for past ExaCheck releases; sourced from the ExaCheck GitHub repository.
 ---
 
 # Changelog

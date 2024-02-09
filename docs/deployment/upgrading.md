@@ -1,5 +1,6 @@
 ---
 icon: octicons/tracked-by-closed-completed-16
+description: Upgrade steps and notes for ExaCheck installations using the PyPi packages or the ExaCheck Docker container.
 ---
 
 # Upgrading

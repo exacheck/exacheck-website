@@ -1,5 +1,6 @@
 ---
 icon: simple/codeblocks
+description: ExaCheck requires various Python modules; this page provides a list of the modules and why they are required.
 ---
 
 # Python Modules

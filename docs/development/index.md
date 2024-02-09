@@ -1,5 +1,6 @@
 ---
 icon: material/developer-board
+description: Information for developing ExaCheck health checks and instructions for using the VS Code development environment.
 ---
 
 # Development

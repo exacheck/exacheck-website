@@ -1,5 +1,6 @@
 ---
 icon: material/dns
+description: The ExaCheck DNS health check is used to verify that a DNS server responds for the specified query. The response may have additional validation to ensure that it matches a requested pattern.
 ---
 
 # DNS

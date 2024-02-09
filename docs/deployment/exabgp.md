@@ -1,5 +1,6 @@
 ---
 icon: material/router
+description: Configuration information for ExaBGP to implement ExaCheck.
 ---
 
 # ExaBGP

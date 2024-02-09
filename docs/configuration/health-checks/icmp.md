@@ -1,5 +1,6 @@
 ---
 icon: material/format-text-wrapping-overflow
+description: The ExaCheck ICMP health check verifies that latency, packet loss and jitter to a target is within the acceptable levels configured.
 ---
 
 # ICMP

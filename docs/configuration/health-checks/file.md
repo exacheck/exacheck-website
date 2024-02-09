@@ -1,5 +1,6 @@
 ---
 icon: material/file
+description: The ExaCheck file health check tests for the existence or absence of a file to determine if a service is healthy.
 ---
 
 # File

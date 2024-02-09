@@ -1,5 +1,6 @@
 ---
 icon: material/language-python
+description: ExaCheck installation steps using the PyPi package or directly from the ExaCheck GitHub repository.
 ---
 
 # Python

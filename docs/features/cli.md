@@ -1,5 +1,6 @@
 ---
 icon: octicons/command-palette-24
+description: Usage instructions for the ExaCheck CLI to run ExaCheck, validate the configuration and dump the configuration schema.
 ---
 
 # Command Line Interface

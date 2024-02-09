@@ -1,12 +1,18 @@
 ---
 icon: simple/sentry
+description: ExaCheck can be configured to send reports and profiling data to Sentry for reporting of potential errors and performance information.
 ---
 
 # Sentry
 
-The reporting to [Sentry][Sentry Homepage] using the `sentry-sdk` module can be configured with the `sentry` key.
+The reporting to [Sentry][Sentry Homepage] using the `sentry-sdk` module can be configured with the `sentry` key. For more information about the below configuration keys, check the official [Sentry basic options documentation][Sentry Configuration - Basic Options].
 
-For more information about the below configuration keys, check the [Sentry basic options documentation][Sentry Configuration - Basic Options].
+!!! note
+    By default there is no dependancy on the `sentry-sdk` module; you must either install it separately or include the `sentry` extra while installing ExaCheck. As an example if using PyPi:
+
+    ```bash
+    python3 -m pip install exacheck[sentry]
+    ```
 
 ## Configuration Keys
 

@@ -1,5 +1,6 @@
 ---
 icon: material/timer
+description: The ExaCheck NTP health check verifies that a NTP server responds to time requests. Optionally the stratum and offset values may be tested.
 ---
 
 # NTP

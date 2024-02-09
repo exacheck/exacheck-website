@@ -1,5 +1,6 @@
 ---
 icon: material/lan-connect
+description: The ExaCheck TCP health check verifies that the supplied TCP port can be connected to.
 ---
 
 # TCP

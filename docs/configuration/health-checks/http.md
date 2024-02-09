@@ -1,5 +1,6 @@
 ---
 icon: material/web
+description: The ExaCheck HTTP health check validates that a web server responds to a request of the chosen method. Optionally the SSL certificate can be checked to ensure it is trusted.
 ---
 
 # HTTP

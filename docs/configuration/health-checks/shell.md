@@ -1,5 +1,6 @@
 ---
 icon: material/bash
+description: The ExaCheck shell health check runs the specified command in a shell session and verifies that the exit code indicates success.
 ---
 
 # Shell

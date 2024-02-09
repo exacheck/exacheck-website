@@ -1,5 +1,6 @@
 ---
 icon: material/head-question
+description: Configuration examples for ExaBGP and ExaCheck with sample checks.
 ---
 
 # Examples
