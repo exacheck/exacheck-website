@@ -62,6 +62,11 @@ extra:
     - icon: fontawesome/brands/docker
       link: https://hub.docker.com/r/exacheck/exacheck
       name: ExaCheck Docker Hub
+  status:
+    wip: Work in progress
+
+extra_css:
+  - assets/css/status.css
 
 plugins:
   - glightbox
