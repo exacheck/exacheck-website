@@ -44,3 +44,4 @@ In the future after any features are complete I plan to do these:
 - [ ] Clean up comments: The current functions are mostly missing documentation about parameters that are passed to them.
 - [ ] Tidy up logging: I plan to tidy up logging a bit and split log messages into "short" and "long".
 - [ ] Website tidy up: The website needs to be reviewed and have grammar fixed up.
+- [ ] Plugin based health checks: Allow you to place customer health checks in a directory and load them automatically.
