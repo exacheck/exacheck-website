@@ -6,6 +6,36 @@ icon: material/language-python
 
 ExaCheck requires a recent version of Python; **Python 3.10 - 3.12 is required**. If you try to run ExaCheck on an earlier release of Python it will not work.
 
+## venv Setup
+
+While not required, it is recommended that ExaCheck is installed in a Python virtual environment. To setup a virtual environment, first ensure that the relevant `python-venv` package is installed for the distribution you are running:
+
+=== "Ubuntu/Debian"
+
+  ```bash
+  apt install python3-venv
+  ```
+
+=== "Alma/CentOS/RedHat"
+
+  Depending on the release, the venv module may already be installed. If not, install the `python3-virtualenv` package:
+
+  ```bash
+  yum install python3-virtualenv
+  ```
+
+The virtual environment can then be created. To create the environment in `/opt/exacheck`:
+
+```bash
+python3 -m venv /opt/exacheck
+```
+
+The environment should now be activated before continuing with the PyPi or source installation:
+
+```bash
+source /opt/exacheck/bin/activate
+```
+
 ## PyPI Package
 
 ExaCheck can be installed using `pip` from the [PyPI package repository][ExaCheck PyPI Package Repository]:
@@ -16,118 +46,34 @@ python3 -m pip install exacheck
 
 All requirements will be installed automatically.
 
-After installation you may configure ExaCheck using one of the [example configuration files][ExaCheck Examples] as a template.
+## Source Build
 
-### venv
-
-To install ExaCheck and ExaBGP in a Python virtual environment (in this example using `/opt/exacheck` as the root of the venv), follow the below steps:
-
-1. Create the virtual environment:
+To install ExaCheck from source you must have the `git` package available. To install from the `main` branch:
 
 ```bash
-python3 -m venv /opt/exacheck
+python3 -m pip install git+https://github.com/exacheck/exacheck.git@main
 ```
 
-2. Optionally, activate the environment:
+To install a specific release, change the `main` branch to the relevant release name. As an example for `v0.0.10`:
 
 ```bash
-source /opt/exacheck/bin/activate
+python3 -m pip install git+https://github.com/exacheck/exacheck.git@v0.0.10
 ```
 
-3. Install the ExaCheck package:
+## Post Installation
 
-```bash
-/opt/exacheck/bin/python3 -m pip install exacheck
-```
+After installation, ExaBGP requires some additional setup. Follow the steps on the [ExaBGP setup][ExaBGP Setup] page.
 
-ExaCheck and ExaBGP are now ready to use.
+### Logging Directory
 
-## ExaBGP - Python 3.12 Note
-
-If using Python 3.12, you may get the following error when running ExaBGP:
-
-```bash
-root@970372c5ffcd:/# exabgp
-Traceback (most recent call last):
-  File "/usr/local/bin/exabgp", line 8, in <module>
-    sys.exit(run_exabgp())
-             ^^^^^^^^^^^^
-  File "/usr/local/lib/python3.12/site-packages/exabgp/application/__init__.py", line 18, in run_exabgp
-    from exabgp.application.bgp import main
-  File "/usr/local/lib/python3.12/site-packages/exabgp/application/bgp.py", line 18, in <module>
-    from exabgp.logger import Logger
-  File "/usr/local/lib/python3.12/site-packages/exabgp/logger.py", line 23, in <module>
-    from exabgp.configuration.environment import environment
-  File "/usr/local/lib/python3.12/site-packages/exabgp/configuration/environment.py", line 318, in <module>
-    from exabgp.vendoring.six.moves import configparser as ConfigParser
-ModuleNotFoundError: No module named 'exabgp.vendoring.six.moves'
-```
-
-If you encounter this error, ExaBGP must be installed from source rather than the current PyPi release. Make sure `git` is available and install from the GitHub repository instead:
-
-```bash
-python3 -m pip install git+https://github.com/Exa-Networks/exabgp.git@4.2
-```
-
-## ExaBGP Setup Notes
-
-If using PyPI to install ExaBGP a few extra steps should be performed.
-
-### ExaBGP User
-
-A user account should be added for ExaBGP so it does not run as root. To add the account:
-
-```bash
-useradd -Ms /usr/sbin/nologin -d /run/exabgp exabgp
-```
-
-### ExaBGP Service File
-
-The pip install method of ExaBGP does not include a systemd service file. Create the file `/etc/systemd/system/exabgp.service` with this content:
-
-```ini
-[Unit]
-Description=ExaBGP
-Documentation=man:exabgp(1)
-Documentation=man:exabgp.conf(5)
-Documentation=https://github.com/Exa-Networks/exabgp/wiki
-After=network.target
-ConditionPathExists=/etc/exabgp/exabgp.conf
-
-[Service]
-Environment=exabgp_daemon_daemonize=false
-User=exabgp
-Group=exabgp
-RuntimeDirectory=exabgp
-RuntimeDirectoryMode=0750
-ExecStartPre=-/usr/bin/mkfifo /run/exabgp/exabgp.in
-ExecStartPre=-/usr/bin/mkfifo /run/exabgp/exabgp.out
-ExecStart=/opt/exacheck/bin/exabgp /etc/exabgp/exabgp.conf
-ExecReload=/bin/kill -USR1 $MAINPID
-Restart=always
-CapabilityBoundingSet=CAP_NET_ADMIN
-AmbientCapabilities=CAP_NET_ADMIN
-
-[Install]
-WantedBy=multi-user.target
-```
-
-Once the service file is created the service can be enabled to start on boot:
-
-```bash
-systemctl enable exabgp.service
-```
-
-### Logging
-
-If enabling logging to the path `/var/log/exacheck`, create the directory and set permissions:
+If file based logging will be used, the directory to store the logs must exist and be writeable by the user running ExaBGP. As an example, if you would like to log to the directory `/var/log/exacheck`:
 
 ```bash
 mkdir /var/log/exacheck
 chown exacheck:exacheck /var/log/exacheck
 ```
 
-A logging configuration in `exacheck.yaml` would look like:
+The relevant logging configuration in the ExaCheck configuration file would look like this:
 
 ```yaml
 ---
@@ -142,95 +88,10 @@ examples/check_footer.md
 --8<--
 ```
 
-### ExaBGP Configuration
+## ExaCheck Configuration
 
-Create the ExaBGP and ExaCheck configuration files. By default they will be sourced from `/etc/exabgp`. The directory will need to be created:
+You may now proceed with the ExaCheck configuration. The [example configuration files][ExaCheck Examples] can be used as a template.
 
-```bash
-mkdir /etc/exabgp
-```
-
-Create the default ExaBGP environment file:
-
-```bash
-/opt/exacheck/bin/exabgp --fi > /etc/exabgp/exabgp.env
-```
-
-The following configuration options need to be changed in the environment file:
-
-- API `ack` set to `false`
-- ExaBGP user changed from `nobody` to `exabgp`
-
-A sed one liner to change the required values can be executed:
-
-```bash
-sed -i \
-    -e "s:ack = true:ack = false:" \
-    -e "s:user = 'nobody':user = 'exabgp':" \
-    /etc/exabgp/exabgp.env
-```
-
-Once ExaBGP and ExaCheck has been configured (see the [configuration examples page][ExaCheck Examples]) the ExaBGP service can be started:
-
-```bash
-systemctl start exabgp.service
-```
-
-## Python Modules
-
-Various Python modules are required to use ExaCheck. The current requirements and their versions can be found in the [pyproject.toml file][ExaCheck PyProject].
-
-### Main Script
-
-These dependencies are used as a part of the main script.
-
-- [Apprise][Apprise]: `apprise` is used to handle notifications to external services.
-- [ExaBGP][ExaBGP]: `exabgp` is used to actually talk BGP; ExaCheck communicates with ExaBGP to announce or withdraw routes as needed.
-- [Loguru][Loguru]: `loguru` is used for logging.
-- [Pydantic][Pydantic]: `pydantic` is used to validate and store the configuration objects and check results.
-- [PyYAML][PyYAML]: `pyyaml` is used to load and parse the configuration file into a dict, ready for [Pydantic][Pydantic] to consume.
-- [setproctitle][setproctitle]: `setproctitle` will change the process title for the child processes.
-- [tabulate][tabulate]: `tabulate` is used to format output into a table.
-- [UltraJSON][UltraJSON]: `ujson` is used for loading configuration from JSON.
-
-### Health Checks
-
-These dependencies are required for the various health checks to work.
-
-- [dnspython][dnspython]: `dnspython` is used for the `dns` health check method and to look up hostnames when required for other checks.
-- [requests][requests]: `requests` is used for the `http` health check method.
-- [icmplib][icmplib]: `icmplib` is used for the `icmp` health check method.
-- [ntplib][ntplib]: `ntplib` is used for the `ntp` health check method.
-
-### Command Line Interface
-
-These dependencies are required for the command line interface.
-
-- [Click][Click]: `click` provides the command line interface.
-
-### Sentry
-
-If you would like to enable [Sentry][Sentry] support, the `sentry-sdk` module must be installed.
-
-### icmplib Note
-
-By default, [icmplib][icmplib] is used in non-privileged mode. There **ARE** some requirements for this to work depending on the Linux distribution, see step 2 on the [icmplib without privileges][icmplib without privileges] page.
-
-[Click]: https://click.palletsprojects.com/
-[dnspython]: https://www.dnspython.org/
-[ExaBGP]: https://github.com/Exa-Networks/exabgp
-[ExaCheck PyProject]: https://github.com/exacheck/exacheck/blob/main/pyproject.toml
-[icmplib without privileges]: https://github.com/ValentinBELYN/icmplib/blob/main/docs/6-use-icmplib-without-privileges.md
-[icmplib]: https://github.com/ValentinBELYN/icmplib
-[Loguru]: https://github.com/Delgan/loguru
-[ntplib]: https://github.com/cf-natali/ntplib
-[Pydantic]: https://docs.pydantic.dev/
-[PyYAML]: https://pyyaml.org/
-[requests]: https://requests.readthedocs.io/en/latest/
-[setproctitle]: https://github.com/dvarrazzo/py-setproctitle
-[tabulate]: https://github.com/astanin/python-tabulate
-[UltraJSON]: https://github.com/ultrajson/ultrajson
-[Apprise]: https://github.com/caronc/apprise
-[Sentry]: https://sentry.io/welcome/
 [ExaCheck PyPI Package Repository]: https://pypi.org/project/exacheck/
+[ExaBGP Setup]: exabgp.md
 [ExaCheck Examples]: examples.md

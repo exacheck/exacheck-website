@@ -4,10 +4,16 @@ icon: octicons/tracked-by-closed-completed-16
 
 # Deployment
 
-ExaCheck may be deployed in a [Docker container][ExaCheck Deployment - Docker] or as a [standard Python package][ExaCheck Deployment - Python].
+ExaCheck may be installed by following one of these steps:
 
-Once installed, you may take a look at the [configuration examples page][ExaCheck Deployment - Examples] for inspiration.
+- Building [from PyPi or from source][ExaCheck Deployment - Python]
+- Using the [ExaCheck Docker container][ExaCheck Deployment - Docker]
 
-[ExaCheck Deployment - Docker]: docker.md
+After installation the [configuration examples][ExaCheck Deployment - Examples] page provides some templates that you may use for configuration of ExaBGP/ExaCheck.
+
+For a list of dependencies, check the [Python modules page][ExaCheck Deployment - Modules],
+
 [ExaCheck Deployment - Python]: python.md
+[ExaCheck Deployment - Docker]: docker.md
 [ExaCheck Deployment - Examples]: examples.md
+[ExaCheck Deployment - Modules]: modules.md

@@ -47,7 +47,8 @@
 			"respawn",
 			"setproctitle",
 			"syslogs",
-			"venv"
+			"venv",
+			"virtualenv"
 		],
 		"terminal.integrated.scrollback": 50000
 	}
