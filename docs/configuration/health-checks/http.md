@@ -9,7 +9,7 @@ The `http` health check allows you to perform HTTP/HTTPS requests to a web serve
 
 ## Configuration Keys
 
-The following configuration options apply to the DNS health check method:
+The following configuration options apply to the HTTP health check method:
 
 | Key                                   | Type               | Default                                   |
 | ------------------------------------- | ------------------ | ----------------------------------------- |
@@ -23,6 +23,7 @@ The following configuration options apply to the DNS health check method:
 | [`verify_ssl`](#verify-ssl)           | Bool               | `False`                                   |
 | [`request_method`](#request-method)   | String             | `GET`                                     |
 | [`data`](#data)                       | *Optional* Dict    | *undef*                                   |
+| [`http2`](#http2)                     | Bool               | `False`                                   |
 
 ### Remote Check Options
 
@@ -36,7 +37,7 @@ snippets/checks/remote-args.md
 
 The full URL to request from the web server. The actual HTTP request is sent to the web server defined in the `host` variable with the host header in the HTTP request being set to the value from the URL.
 
-HTTPS requests use SNI.
+HTTPS requests are configured to use SNI automatically if the URL to check is a hostname.
 
 If basic authentication is required the username/password can be added to the URL (eg. `http://user:password@example.com`) or the `headers` option can be used.
 
@@ -95,6 +96,10 @@ If the `request_method` is set to a value that allows data to be included (eg. `
         field1: example
         field2: another example
 ```
+
+### HTTP2
+
+The `http2` bool can be set to `True` to allow HTTP2 to be used (if supported by the server) for the request. If the server does not support HTTP2 the request will proceed as normal as a HTTP1 request.
 
 ## Examples
 

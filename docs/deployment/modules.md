@@ -27,7 +27,7 @@ These dependencies are required for the various health checks to work.
 - [dnspython][dnspython]: `dnspython` is used for the `dns` health check method and to look up hostnames when required for other checks.
 - [icmplib][icmplib]: `icmplib` is used for the `icmp` health check method.
 - [ntplib][ntplib]: `ntplib` is used for the `ntp` health check method.
-- [requests][requests]: `requests` is used for the `http` health check method.
+- [HTTPX][httpx]: `HTTPX` is used for the `http` health check method.
 
 ### icmplib Note
 
@@ -57,7 +57,7 @@ python3 -m pip install exacheck[sentry]
 [ntplib]: https://github.com/cf-natali/ntplib
 [Pydantic]: https://docs.pydantic.dev/
 [PyYAML]: https://pyyaml.org/
-[requests]: https://requests.readthedocs.io/en/latest/
+[httpx]: https://www.python-httpx.org/
 [setproctitle]: https://github.com/dvarrazzo/py-setproctitle
 [tabulate]: https://github.com/astanin/python-tabulate
 [UltraJSON]: https://github.com/ultrajson/ultrajson
