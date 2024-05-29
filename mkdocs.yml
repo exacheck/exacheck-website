@@ -9,6 +9,7 @@ edit_uri: https://github.com/exacheck/exacheck-website/edit/main/docs/
 
 theme:
   name: material
+  custom_dir: overrides
   favicon: assets/images/icons/favicon.ico
   logo: assets/images/icons/bgp.svg
 
@@ -50,8 +51,10 @@ theme:
 extra:
   generator: false
   analytics:
-    provider: google
-    property: G-LZT47G0118
+    provider: custom
+    matomo_host: https://stats.remote.sx/
+    matomo_id: 36
+    google_tag: G-LZT47G0118
   social:
     - icon: material/email
       link: mailto:exacheck@exacheck.net
