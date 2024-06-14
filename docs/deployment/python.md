@@ -57,10 +57,10 @@ To install ExaCheck from source you must have the `git` package available. To in
 python3 -m pip install git+https://github.com/exacheck/exacheck.git@main
 ```
 
-To install a specific release, change the `main` branch to the relevant release name. As an example for `v0.0.10`:
+To install a specific release, change the `main` branch to the relevant release name. As an example for `v0.1.2`:
 
 ```bash
-python3 -m pip install git+https://github.com/exacheck/exacheck.git@v0.0.10
+python3 -m pip install git+https://github.com/exacheck/exacheck.git@v0.1.2
 ```
 
 ## Post Installation

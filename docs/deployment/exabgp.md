@@ -8,7 +8,7 @@ description: Configuration information for ExaBGP to implement ExaCheck.
 If installing ExaCheck from PyPi or source, ExaBGP requires some additional setup steps. If you are deploying the Docker container there is no need to follow the below steps.
 
 !!! warning
-    If using Python 3.12, you may get the following error when running ExaBGP:
+    If using Python 3.12 and installing an older ExaBGP release, you may get the following error when running ExaBGP:
 
     ```bash
     root@970372c5ffcd:/# exabgp
