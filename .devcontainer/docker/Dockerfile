@@ -1,5 +1,5 @@
 ## Base on Python dev container
-FROM registry.remote.sx/development-images/ubuntu/python:latest
+FROM registry.gitlab.com/development-images/ubuntu/python:latest
 
 ## Install mkdocs-material theme and plugins
 RUN python3 -m pip install --break-system-packages \
