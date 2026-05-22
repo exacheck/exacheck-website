@@ -14,11 +14,12 @@ As I need them I plan to add additional health check methods. Unless there is a 
 ### General Features
 
 - [x] Python 3.10 support
-- [x] Python 3.11 support: This is the commonly available Python release for modern distributions.
-- [x] Python 3.12 support: The current stable Python release.
-- [ ] Complete test files: Currently there is only a basic test for loading the configuration.
-- [ ] Logging for when ExaCheck is shut down. Due to a race condition Loguru is not able to log inside a signal handler.
-- [ ] Make the `metric_down` feature work. If set, routes should be announced when the service is down but have the configured metric attribute set.
+- [x] Python 3.11 support
+- [x] Python 3.12 support
+- [x] Python 3.13 support
+- [ ] Python 3.14 support
+- [ ] Extend tests; only limited tests are included currently
+- [x] Make the `metric_down` feature work. If set, routes should be announced when the service is down but have the configured metric attribute set.
 - [ ] API for monitoring purposes.
 - [ ] Configuration management for ExaBGP. This should remove the need to have a separate exabgp.conf file (if the setting is used).
 
@@ -34,7 +35,8 @@ As I need them I plan to add additional health check methods. Unless there is a 
 
 ### HTTP Health Check
 
-- [ ] Add support for HTTP2 and HTTP3.
+- [x] Add support for HTTP2
+- [ ] Add support for HTTP3
 
 ### DNS Health Check
 
