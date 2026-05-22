@@ -7,32 +7,6 @@ description: Configuration information for ExaBGP to implement ExaCheck.
 
 If installing ExaCheck from PyPi or source, ExaBGP requires some additional setup steps. If you are deploying the Docker container there is no need to follow the below steps.
 
-!!! warning
-    If using Python 3.12 and installing an older ExaBGP release, you may get the following error when running ExaBGP:
-
-    ```bash
-    root@970372c5ffcd:/# exabgp
-    Traceback (most recent call last):
-    File "/usr/local/bin/exabgp", line 8, in <module>
-        sys.exit(run_exabgp())
-                ^^^^^^^^^^^^
-    File "/usr/local/lib/python3.12/site-packages/exabgp/application/__init__.py", line 18, in run_exabgp
-        from exabgp.application.bgp import main
-    File "/usr/local/lib/python3.12/site-packages/exabgp/application/bgp.py", line 18, in <module>
-        from exabgp.logger import Logger
-    File "/usr/local/lib/python3.12/site-packages/exabgp/logger.py", line 23, in <module>
-        from exabgp.configuration.environment import environment
-    File "/usr/local/lib/python3.12/site-packages/exabgp/configuration/environment.py", line 318, in <module>
-        from exabgp.vendoring.six.moves import configparser as ConfigParser
-    ModuleNotFoundError: No module named 'exabgp.vendoring.six.moves'
-    ```
-
-    If you encounter this error, ExaBGP must be installed from source rather than the current PyPi release. Make sure `git` is available and install from the GitHub repository instead:
-
-    ```bash
-    python3 -m pip install git+https://github.com/Exa-Networks/exabgp.git@4.2
-    ```
-
 ## System User
 
 A user account should be added for ExaBGP so it does not run as root. To add the account:
@@ -62,7 +36,7 @@ RuntimeDirectory=exabgp
 RuntimeDirectoryMode=0750
 ExecStartPre=-/usr/bin/mkfifo /run/exabgp/exabgp.in
 ExecStartPre=-/usr/bin/mkfifo /run/exabgp/exabgp.out
-ExecStart=/opt/exacheck/bin/exabgp /etc/exabgp/exabgp.conf
+ExecStart=/opt/exacheck/bin/exabgp server /etc/exabgp/exabgp.conf
 ExecReload=/bin/kill -USR1 $MAINPID
 Restart=always
 CapabilityBoundingSet=CAP_NET_ADMIN
