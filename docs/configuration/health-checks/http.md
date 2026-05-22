@@ -11,19 +11,19 @@ The `http` health check allows you to perform HTTP/HTTPS requests to a web serve
 
 The following configuration options apply to the HTTP health check method:
 
-| Key                                   | Type               | Default                                   |
-| ------------------------------------- | ------------------ | ----------------------------------------- |
-| [`url`](#url)                         | String             | *undef*                                   |
-| [`response`](#response)               | *Optional* Pattern | *undef*                                   |
-| [`expected_status`](#expected-status) | *Optional* Integer | *undef*                                   |
-| [`require_status`](#require-status)   | Bool               | `True`                                    |
-| [`http_timeout`](#http-timeout)       | Integer            | `5`                                       |
-| [`user_agent`](#user-agent)           | String             | `ExaCheck HTTP Health Check [v<version>]` |
-| [`headers`](#headers)                 | *Optional* Dict    | *undef*                                   |
-| [`verify_ssl`](#verify-ssl)           | Bool               | `False`                                   |
-| [`request_method`](#request-method)   | String             | `GET`                                     |
-| [`data`](#data)                       | *Optional* Dict    | *undef*                                   |
-| [`http2`](#http2)                     | Bool               | `False`                                   |
+| Key                                   | Type                              | Default                                   |
+| ------------------------------------- | --------------------------------- | ----------------------------------------- |
+| [`url`](#url)                         | String                            | *undef*                                   |
+| [`response`](#response)               | *Optional* Pattern                | *undef*                                   |
+| [`expected_status`](#expected-status) | *Optional* Integer, List[Integer] | *undef*                                   |
+| [`require_status`](#require-status)   | Bool                              | `True`                                    |
+| [`http_timeout`](#http-timeout)       | Integer                           | `5`                                       |
+| [`user_agent`](#user-agent)           | String                            | `ExaCheck HTTP Health Check [v<version>]` |
+| [`headers`](#headers)                 | *Optional* Dict                   | *undef*                                   |
+| [`verify_ssl`](#verify-ssl)           | Bool                              | `False`                                   |
+| [`request_method`](#request-method)   | String                            | `GET`                                     |
+| [`data`](#data)                       | *Optional* Dict                   | *undef*                                   |
+| [`http2`](#http2)                     | Bool                              | `False`                                   |
 
 ### Remote Check Options
 
@@ -48,6 +48,8 @@ The `response` value may be set to a pattern to match the content returned from 
 ### Expected Status
 
 The `expected_status` code may be set to ensure that the web server responds with a specific HTTP status code. In some cases you may want to validate the web server responds with a specific status code (eg. `301`) and not just a `200`.
+
+A single status code or a list of status codes may be provided.
 
 ### Require Status
 
