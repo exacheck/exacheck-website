@@ -32,4 +32,18 @@ Every effort is made to keep the configuration file between releases compatible.
 
 When upgrading to `0.0.5`, the `monitoring_interval` and `live_reload` options have been migrated under the [`exacheck`][ExaCheck Configuration - Internal] configuration key.
 
+### 0.1.7
+
+The `0.1.7` release of ExaCheck introduces a dependency on ExaBGP v5. The new ExaBGP release introduces a slightly different command line. One of the changes that has impacted me has been the replacement of the `-e` flag for specifying an environment file with `--env-file`; I had a systemd service file that was using this `ExecStart` line:
+
+```bash
+ExecStart=/opt/exacheck/bin/exabgp -e /etc/exabgp/exabgp.env /etc/exabgp/exabgp.conf
+```
+
+The corrected line is (the addition of `server` is not required but recommended):
+
+```bash
+ExecStart=/opt/exacheck/bin/exabgp --env-file /etc/exabgp/exabgp.env server /etc/exabgp/exabgp.conf
+```
+
 [ExaCheck Configuration - Internal]: ../configuration/exacheck.md
