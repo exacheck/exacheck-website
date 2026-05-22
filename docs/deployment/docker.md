@@ -18,9 +18,8 @@ By default, ExaBGP does not listen for inbound BGP connections; only outbound co
 
 The [Dockerfile][ExaCheck Dockerfile] is available should you want to change Python and/or ExaCheck release. The following build arguments are supported:
 
-* `PYTHON_VERSION`: The Python version for the container. Defaults to `3.11` currently.
-* `EXACHECK_VERSION`: The ExaCheck branch or tag to build from. Defaults to `v0.0.10` currently.
-* `EXACHECK_REPOSITORY`: The ExaCheck repository URL to clone from. Defaults to `https://github.com/exacheck/exacheck.git`.
+* `PYTHON_VERSION`: The Python version for the container. Defaults to `3.13` currently.
+* `EXACHECK_VERSION`: The ExaCheck version to use for OCI labelling. Defaults to `dev`.
 
 The same Dockerfile is used for building the DockerHub images.
 
